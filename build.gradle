@@ -1,12 +1,51 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+final def keystoreProperties = rootProject.file('secure/keystore.properties')
+final def tmdbProperties = rootProject.file('secure/tmdb.properties')
+
+ext {
+    configuration = [
+            application_id     : 'com.wisnia.videooo',
+            build_tools_version: '25.0.2',
+            compile_sdk_version: 25,
+            min_sdk_version    : 17,
+            target_sdk_version : 25,
+            version_code       : 1,
+            version_name       : '0.1.0',
+            tmdb_api_key       : getProperty('tmdb_api_key', tmdbProperties)
+    ]
+
+    library = [
+            kotlin         : '1.1.0',
+            android_support: '25.2.0',
+            butterknife    : '8.5.1',
+            dagger         : '2.9',
+            okhttp         : '3.6.0',
+            gson           : '2.8.0',
+            rxandroid      : '2.0.1',
+            rxjava         : '2.0.6',
+            retrofit       : '2.2.0'
+    ]
+
+    testing = [
+            junit   : '4.12',
+            espresso: '2.2.2'
+    ]
+
+    signing = [
+            keystore         : getProperty('keystore', keystoreProperties),
+            keystore_password: getProperty('keystore_password', keystoreProperties),
+            alias            : getProperty('alias', keystoreProperties),
+            alias_password   : getProperty('alias_password', keystoreProperties)
+    ]
+}
 
 buildscript {
     repositories {
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0'
-
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.0"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -20,4 +59,16 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+static def getProperty(String prop, File propsFile) {
+    if (propsFile.exists()) {
+        //if the user has a properties file, get the username and pass from there
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        return props[prop]
+    } else {
+        //if not, try the environment variables (for ci / build servers)
+        return System.getenv(prop)
+    }
 }

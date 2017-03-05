@@ -1,12 +1,7 @@
 # Built application files
 *.apk
-*.ap_
-
 # Files for the ART/Dalvik VM
 *.dex
-
-# Java class files
-*.class
 
 # Generated files
 bin/
@@ -38,7 +33,6 @@ captures/
 *.ipl
 *.iws
 .idea
-classes/
 idea-classes/
 coverage-error.log
 
@@ -52,4 +46,5 @@ coverage-error.log
 google-services.json
 
 # Project configuration folder
-/secure
+secure/*
+!secure/template_*.properties

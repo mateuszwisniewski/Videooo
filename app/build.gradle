@@ -1,29 +1,84 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+def config = rootProject.ext.configuration
+def lib = rootProject.ext.library
+def test = rootProject.ext.testing
+def signing = rootProject.ext.signing
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion config.compile_sdk_version
+    buildToolsVersion config.build_tools_version
+
     defaultConfig {
-        applicationId "com.wisnia.videooo"
-        minSdkVersion 17
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        applicationId config.application_id
+        minSdkVersion config.min_sdk_version
+        targetSdkVersion config.target_sdk_version
+        versionCode config.version_code
+        versionName config.version_name
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField 'String', 'tmdb_api_key', config.tmdb_api_key
     }
+
+    signingConfigs {
+        release {
+            try {
+                storeFile file(signing.keystore)
+                storePassword signing.keystore_password
+                keyAlias signing.alias
+                keyPassword signing.alias_password
+            } catch (ignored) {
+                throw new InvalidUserDataException("You have to define: " +
+                        "keystore, keystore_password, alias, alias_password " +
+                        "in secure/keystore.properties file")
+            }
+        }
+    }
+
     buildTypes {
         release {
+            signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    lintOptions {
+        lintConfig rootProject.file('lint.xml')
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    compile project(':core')
+
+    compile "com.android.support:appcompat-v7:$lib.android_support"
+
+    compile "com.google.dagger:dagger:$lib.dagger"
+    kapt "com.google.dagger:dagger-compiler:$lib.dagger"
+
+    compile "com.jakewharton:butterknife:$lib.butterknife"
+    kapt "com.jakewharton:butterknife-compiler:$lib.butterknife"
+
+    compile "com.squareup.okhttp3:logging-interceptor:$lib.okhttp"
+    compile "com.squareup.retrofit2:retrofit:$lib.retrofit"
+    compile "com.squareup.retrofit2:converter-gson:$lib.retrofit"
+    compile "com.squareup.retrofit2:adapter-rxjava:$lib.retrofit"
+
+    compile "io.reactivex.rxjava2:rxandroid:$lib.rxandroid"
+    compile "io.reactivex.rxjava2:rxjava:$lib.rxjava"
+
+    testCompile "junit:junit:$test.junit"
+
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$test.espresso", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    testCompile 'junit:junit:4.12'
 }

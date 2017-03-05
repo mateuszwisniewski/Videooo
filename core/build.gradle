@@ -1,0 +1,15 @@
+apply plugin: 'kotlin'
+
+def lib = rootProject.ext.library
+def test = rootProject.ext.testing
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$lib.kotlin"
+    compile "com.google.dagger:dagger:$lib.dagger"
+    compile "com.google.code.gson:gson:$lib.gson"
+    compile "io.reactivex.rxjava2:rxjava:$lib.rxjava"
+
+    testCompile "junit:junit:$test.junit"
+}
