@@ -61,6 +61,7 @@ dependencies {
     compile project(':core')
 
     compile "com.android.support:appcompat-v7:$lib.android_support"
+    compile "com.android.support.constraint:constraint-layout:$lib.constraint_layout"
 
     compile "com.google.dagger:dagger:$lib.dagger"
     kapt "com.google.dagger:dagger-compiler:$lib.dagger"
