@@ -1,7 +1,18 @@
 apply plugin: 'kotlin'
+apply plugin: 'jacoco'
 
 def lib = rootProject.ext.library
 def test = rootProject.ext.testing
+
+jacocoTestReport {
+    reports {
+        html.enabled = true
+        xml.enabled = true
+
+        // Raport for Codecov.io service
+        xml.destination "${buildDir}/reports/jacoco/report.xml"
+    }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -12,4 +23,5 @@ dependencies {
     compile "io.reactivex.rxjava2:rxjava:$lib.rxjava"
 
     testCompile "junit:junit:$test.junit"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$lib.kotlin"
 }

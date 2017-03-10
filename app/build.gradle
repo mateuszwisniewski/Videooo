@@ -36,8 +36,13 @@ android {
     }
 
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+
         release {
             signingConfigs.release
+            testCoverageEnabled true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -60,20 +65,25 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':core')
 
+    // Android Support
     compile "com.android.support:appcompat-v7:$lib.android_support"
     compile "com.android.support.constraint:constraint-layout:$lib.constraint_layout"
 
+    // Dagger
     compile "com.google.dagger:dagger:$lib.dagger"
     kapt "com.google.dagger:dagger-compiler:$lib.dagger"
 
+    // ButterKnife
     compile "com.jakewharton:butterknife:$lib.butterknife"
     kapt "com.jakewharton:butterknife-compiler:$lib.butterknife"
 
+    // Retrofit
     compile "com.squareup.okhttp3:logging-interceptor:$lib.okhttp"
     compile "com.squareup.retrofit2:retrofit:$lib.retrofit"
     compile "com.squareup.retrofit2:converter-gson:$lib.retrofit"
     compile "com.squareup.retrofit2:adapter-rxjava:$lib.retrofit"
 
+    // Rx
     compile "io.reactivex.rxjava2:rxandroid:$lib.rxandroid"
     compile "io.reactivex.rxjava2:rxjava:$lib.rxjava"
 
