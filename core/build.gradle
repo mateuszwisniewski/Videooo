@@ -1,5 +1,6 @@
 apply plugin: 'kotlin'
 apply plugin: 'jacoco'
+apply from: '../checkstyle.gradle'
 
 def lib = rootProject.ext.library
 def test = rootProject.ext.testing
