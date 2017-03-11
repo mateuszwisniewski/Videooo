@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply from: 'jacoco.gradle'
 
 def config = rootProject.ext.configuration
 def lib = rootProject.ext.library
@@ -42,7 +43,6 @@ android {
 
         release {
             signingConfigs.release
-            testCoverageEnabled true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

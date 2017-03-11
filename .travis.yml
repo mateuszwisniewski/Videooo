@@ -29,9 +29,8 @@ cache:
     - $HOME/.m2
 
 script:
-- ./gradlew clean build test jacocoTestReport
+- ./gradlew clean build test jacocoTestReport androidTestReport
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -t $TOKEN_CODECOV
-
-secure: "MqRySgMSSTMpxD4ouZw3P4rHIxC5LzpHiT1LdPT7Yz4gPY4TmmGxf3QaLgZSWe5n6o4RGf3hDr76iANyMKKN2Hql6DOUq33aXGdj26JBZw+x+JTFtUbikm9NNT5PqFfObmtYNuHsJqxsdfEXtu4HyOuG7tc0hnj8IiDSKuaai+hFKDdyImuj+6MS89ydX2hDxrtJ0TtPQmCzOroWtd0MxpSmnQmpakGgPq71auDhB7rRt0WSWPWKOBZyEp+izYBx+xb+Rs8we62RQRtL7goeIJOxvHH2HlfQDWjcWoBUChdCs+D4yrtWLIlAp5qQRCmagkSTvdqmVM9RTVhQtsNOKIb/8e1k0vysBkjyIhkt+a5BfHGBSYj6AR+y11r/CqFZAvwMC/lN17fHlfVqH2FbBkY92Kg0xQK4RQ3BYF+GYRMfCrfGevAwrvX/bJ31qIi4FJo3/7sXs8LKELwFNczS+ve6bJAG8GRhnezSCKqpeDKx2exAxub+1Zlnr0HTvZpAmmarwiF49gSEbSGAZ7z5My4JJMioM/N0m2hz6kDL3lL5dQ9ti3zzAWBSAFEVfYLy+rvwnN2YBsQWZ8WE/aG5Sdrxaz50QjYNL0YBgqjVtrwfAqpXFkTHRgZl9tIKvri6Gq1WCo7PuLkVKT+uql71Y0j5pe0qeUV2sLgBVvIEhHA="
+  - bash <(curl -s https://codecov.io/bash) -F app -f app/build/reports/jacoco/report.xml
+  - bash <(curl -s https://codecov.io/bash) -F core -f core/build/reports/jacoco/report.xml

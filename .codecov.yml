@@ -1,0 +1,23 @@
+coverage:
+  range: 50..75
+  round: nearest
+  precision: 2
+  status:
+    project:
+      default: off
+      app:
+        enabled: true
+        target: auto
+        flags: app
+      core:
+        enabled: true
+        target: auto
+        flags: core
+
+flags:
+  app:
+    paths:
+      - app/src/
+  core:
+    paths:
+      - core/src/
