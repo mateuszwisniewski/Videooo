@@ -37,6 +37,11 @@ ext {
             alias            : getProperty('alias', keystoreProperties),
             alias_password   : getProperty('alias_password', keystoreProperties)
     ]
+
+    quality = [
+            config_dir : "${project.rootDir}/config/quality",
+            reports_dir: "${project.buildDir}/reports"
+    ]
 }
 
 buildscript {

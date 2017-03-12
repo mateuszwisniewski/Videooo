@@ -1,0 +1,40 @@
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+
+check.dependsOn 'checkstyle', 'pmd'
+
+def quality = rootProject.ext.quality
+
+/* Checkstyle */
+checkstyle {
+    configFile rootProject.file("$quality.config_dir/checkstyle/checkstyle.xml")
+    configProperties.suppressionsFilePath = rootProject.file("$quality.config_dir/checkstyle/suppressions.xml").absolutePath
+}
+
+task checkstyle(type: Checkstyle) {
+    source 'src'
+    include '**/*.java', '**/*.kt'
+    exclude '**/gen/**'
+    classpath = files()
+    ignoreFailures = false
+}
+
+/* PMD */
+pmd {
+    toolVersion = '5.5.4'
+    ruleSetFiles = files("$quality.config_dir/pmd.xml")
+}
+
+task pmd(type: Pmd) {
+    ruleSets = []
+    source 'src'
+    ignoreFailures = false
+
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        html {
+            destination "$quality.reports_dir/pmd/pmd.html"
+        }
+    }
+}

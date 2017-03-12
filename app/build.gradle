@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: 'jacoco.gradle'
-apply from: '../checkstyle.gradle'
+apply from: '../quality.gradle'
 
 def config = rootProject.ext.configuration
 def lib = rootProject.ext.library
 def test = rootProject.ext.testing
 def signing = rootProject.ext.signing
+def quality = rootProject.ext.quality
 
 android {
     compileSdkVersion config.compile_sdk_version
@@ -50,7 +51,11 @@ android {
     }
 
     lintOptions {
-        lintConfig rootProject.file('lint.xml')
+        abortOnError true
+        xmlReport false
+        htmlReport true
+        lintConfig file("$quality.config_dir/lint.xml")
+        htmlOutput file("$quality.reports_dir/lint/lint-result.html")
     }
 
     packagingOptions {
