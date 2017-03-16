@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply from: 'jacoco.gradle'
+apply from: '../jacoco.gradle'
 apply from: '../quality.gradle'
 
 def config = rootProject.ext.configuration

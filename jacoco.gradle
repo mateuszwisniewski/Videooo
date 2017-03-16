@@ -1,0 +1,58 @@
+apply plugin: 'jacoco'
+
+def test = rootProject.ext.testing
+
+jacoco {
+    toolVersion = "$test.jacoco"
+}
+
+def moduleExcludes = [
+        'app' : ['**/R.class',
+                 '**/R$*.class',
+                 '**/*$ViewInjector*.*',
+                 '**/*$ViewBinder*.*',
+                 '**/BuildConfig.*',
+                 '**/Manifest*.*',
+                 '**/*Activity.class'],
+        'core':
+                ['**/R.class',
+                 '**/R$*.class',
+                 '**/*$ViewInjector*.*',
+                 '**/*$ViewBinder*.*']
+]
+
+def moduleClassDirs = [
+        'app' : 'build/intermediates/classes/debug',
+        'core': 'build/classes'
+]
+
+def moduleJacocoExec = [
+        'app' : 'build/jacoco/testDebugUnitTest.exec',
+        'core': 'build/jacoco/test.exec'
+]
+
+task testReport(type: JacocoReport, dependsOn: "test") {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports..."
+
+    classDirectories = fileTree(
+            dir: moduleClassDirs[project.name],
+            excludes: moduleExcludes[project.name]
+    )
+
+    def coverageSourceDirs = [
+            "src/main/java"
+    ]
+    additionalSourceDirs = files(coverageSourceDirs)
+    sourceDirectories = files(coverageSourceDirs)
+    executionData = files(moduleJacocoExec[project.name])
+
+    reports {
+        html.enabled false
+        csv.enabled false
+        xml {
+            enabled true
+            destination "${buildDir}/reports/jacoco/report.xml"
+        }
+    }
+}

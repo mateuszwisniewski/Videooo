@@ -15,7 +15,7 @@ ext {
 
     library = [
             kotlin           : '1.1.0',
-            android_support  : '25.2.0',
+            android_support  : '25.3.0',
             constraint_layout: '1.0.1',
             butterknife      : '8.5.1',
             dagger           : '2.9',
@@ -28,7 +28,8 @@ ext {
 
     testing = [
             junit   : '4.12',
-            espresso: '2.2.2'
+            espresso: '2.2.2',
+            jacoco  : '0.7.9'
     ]
 
     signing = [

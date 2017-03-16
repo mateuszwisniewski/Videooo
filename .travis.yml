@@ -29,7 +29,7 @@ cache:
     - $HOME/.m2
 
 script:
-- ./gradlew clean build test jacocoTestReport androidTestReport
+- ./gradlew clean build testReport
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -F app -f app/build/reports/jacoco/report.xml
