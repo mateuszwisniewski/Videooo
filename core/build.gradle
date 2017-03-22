@@ -3,7 +3,7 @@ apply from: '../jacoco.gradle'
 apply from: '../quality.gradle'
 
 def lib = rootProject.ext.library
-def test = rootProject.ext.testing
+def tests = rootProject.ext.testing
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -13,6 +13,7 @@ dependencies {
     compile "com.google.code.gson:gson:$lib.gson"
     compile "io.reactivex.rxjava2:rxjava:$lib.rxjava"
 
-    testCompile "junit:junit:$test.junit"
+    testCompile "junit:junit:$tests.junit"
+    testCompile "org.mockito:mockito-core:$tests.mockito"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$lib.kotlin"
 }
