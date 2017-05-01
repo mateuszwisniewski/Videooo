@@ -1,4 +1,4 @@
-package com.wisnia.videooo.network
+package com.wisnia.videooo.network.data
 
 import java.util.concurrent.TimeUnit
 

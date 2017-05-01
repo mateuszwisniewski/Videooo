@@ -1,5 +1,6 @@
 package com.wisnia.videooo.network
 
+import com.wisnia.videooo.network.data.Timeout
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import rx.Observable
