@@ -3,14 +3,14 @@ package com.wisnia.videooo.network.interceptor
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class ApiKeyInterceptor(val apiKey: String) : Interceptor {
+class ApiKeyInterceptor(private val apiKey: String) : Interceptor {
     init {
         if (apiKey.isEmpty()) {
             throw ApiKeyNotFoundException()
         }
     }
 
-    val API_KEY_NAME: String = "api_key"
+    private val API_KEY_NAME: String = "api_key"
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()

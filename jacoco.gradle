@@ -13,12 +13,13 @@ def moduleExcludes = [
                  '**/*$ViewBinder*.*',
                  '**/BuildConfig.*',
                  '**/Manifest*.*',
-                 '**/*Activity.class'],
+                 '**/VideoooApplication*.*',
+                 '**/*Activity.class',
+                 '**/*Module*.*',
+                 '**/*Component*.*',
+                 '**/data/**'],
         'core':
-                ['**/R.class',
-                 '**/R$*.class',
-                 '**/*$ViewInjector*.*',
-                 '**/*$ViewBinder*.*']
+                ['**/data/**']
 ]
 
 def moduleClassDirs = [
@@ -48,7 +49,7 @@ task testReport(type: JacocoReport, dependsOn: "test") {
     executionData = files(moduleJacocoExec[project.name])
 
     reports {
-        html.enabled false
+        html.enabled true
         csv.enabled false
         xml {
             enabled true

@@ -1,4 +1,4 @@
-package com.wisnia.videooo.network.interceptor
+package com.wisnia.videooo.network.interceptor.data
 
 import okhttp3.Interceptor
 

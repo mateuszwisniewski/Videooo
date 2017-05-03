@@ -6,7 +6,7 @@ import com.wisnia.videooo.network.HttpServiceProvider
 import com.wisnia.videooo.network.OkHttpClientProvider
 import com.wisnia.videooo.network.RetrofitServiceProvider
 import com.wisnia.videooo.network.data.Timeout
-import com.wisnia.videooo.network.interceptor.Interceptors
+import com.wisnia.videooo.network.interceptor.data.Interceptors
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
