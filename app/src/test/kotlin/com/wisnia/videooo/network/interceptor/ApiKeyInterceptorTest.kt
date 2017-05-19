@@ -7,21 +7,20 @@ import org.junit.runner.RunWith
 import org.mockito.ArgumentMatchers.any
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
+import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
 class ApiKeyInterceptorTest {
 
     val API_KEY_NAME = "api_key"
-    val EMPTY_API_KEY = ""
-    val EXAMPLE_API_KEY = "example_api_key"
 
     @Mock
-    var chain: Interceptor.Chain? = null
+    lateinit var chain: Interceptor.Chain
 
     @Before
     fun setUp() {
-        `when`(chain!!.proceed(any(Request::class.java)))
+        `when`(chain.proceed(any(Request::class.java)))
                 .thenAnswer {
                     Response.Builder()
                             .code(200)
@@ -32,28 +31,36 @@ class ApiKeyInterceptorTest {
     }
 
     @Test(expected = ApiKeyNotFoundException::class)
-    fun intercept_whenNoApiKeyInRequestQuery_thenThrowException() {
-        given_QueryParameters()
+    fun `when intercept with no api key in request query then throw exception`() {
+        // Given
+        val apiKey: String = ""
 
-        val interceptor: ApiKeyInterceptor = ApiKeyInterceptor(EMPTY_API_KEY)
-        interceptor.intercept(chain!!)
+        // When
+        val interceptor: ApiKeyInterceptor = ApiKeyInterceptor(apiKey)
+        interceptor.intercept(chain)
     }
 
     @Test
-    fun intercept_whenApiKeyInRequestQuery() {
-        given_QueryParameters()
+    fun `when intercept with api key in request query then proceed request`() {
+        // Given
+        val apiKey: String = "example_api_key"
+        addApiKeyQueryParameter(apiKey)
 
-        val interceptor: ApiKeyInterceptor = ApiKeyInterceptor(EXAMPLE_API_KEY)
-        interceptor.intercept(chain!!)
+        // When
+        val interceptor: ApiKeyInterceptor = ApiKeyInterceptor(apiKey)
+        interceptor.intercept(chain)
+
+        // Then
+        `verify`(chain).proceed(any(Request::class.java))
     }
 
-    private fun given_QueryParameters() {
+    private fun addApiKeyQueryParameter(apiKey: String) {
         val httpUrlBuilder: HttpUrl.Builder = HttpUrl.Builder()
                 .scheme("http")
                 .host("example-host.com")
-                .addQueryParameter(API_KEY_NAME, EXAMPLE_API_KEY)
+                .addQueryParameter(API_KEY_NAME, apiKey)
 
-        `when`(chain!!.request()).thenReturn(Request.Builder()
+        `when`(chain.request()).thenReturn(Request.Builder()
                 .url(httpUrlBuilder.build())
                 .build())
     }
