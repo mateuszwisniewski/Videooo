@@ -7,7 +7,7 @@ import com.wisnia.videooo.dependency.modules.ApplicationModule
 
 class VideoooApplication : Application() {
 
-    private var appComponent: ApplicationComponent = null!!
+    lateinit private var appComponent: ApplicationComponent
 
     fun getAppComponent(): ApplicationComponent {
         return appComponent

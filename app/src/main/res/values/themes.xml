@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Platform.Theme.Videooo" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="Platform.Theme.Videooo.Dark" parent="Theme.AppCompat.NoActionBar" />
+
+    <style name="Base.Theme.Videooo" parent="Platform.Theme.Videooo" />
+
+    <style name="Base.Theme.Videooo.Dark" parent="Platform.Theme.Videooo.Dark" />
+
+    <style name="Theme.Videooo" parent="Base.Theme.Videooo">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashScreenTheme" parent="Base.Theme.Videooo">
+        <item name="android:windowBackground">@drawable/background_splash_screen</item>
+    </style>
+</resources>
