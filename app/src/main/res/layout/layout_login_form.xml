@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:parentTag="android.support.constraint.ConstraintLayout"
+    tools:showIn="@layout/activity_login">
+
+    <com.wisnia.videooo.view.FontTextView
+        android:id="@+id/auth_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/ic_movie_filter"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/login_screen_title_text_size"
+        app:font="BorisBlackBloxx.ttf"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/auth_login_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/login_screen_login_layout_margin_top"
+        android:background="@android:color/white"
+        android:padding="@dimen/login_screen_login_layout_padding"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/auth_title">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/auth_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/login_screen_login_field_drawable_padding"
+            android:drawableStart="@drawable/ic_person"
+            android:hint="@string/login_screen_login_hint"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/auth_password_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/login_screen_password_layout_margin_top"
+        android:background="@android:color/white"
+        android:padding="@dimen/login_screen_password_layout_padding"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/auth_login_input"
+        app:passwordToggleEnabled="true">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/auth_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/login_screen_password_field_drawable_padding"
+            android:drawableStart="@drawable/ic_key"
+            android:hint="@string/login_screen_password_hint"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="textPassword" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/auth_sign_in_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/login_screen_sign_in_button_margin_top"
+        android:text="@string/login_screen_sign_in_button_text"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@color/colorAccent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/auth_password_input" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/auth_register_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/login_screen_sign_in_button_margin_top"
+        android:text="@string/login_screen_register_button_text"
+        android:textColor="@android:color/black"
+        app:backgroundTint="@color/colorAccentLight"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/auth_sign_in_button" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/auth_guest_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/login_screen_guest_button_margin_top"
+        android:text="@string/login_screen_guest_button_text"
+        app:backgroundTint="@color/colorPrimaryLight"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/auth_register_button" />
+</merge>

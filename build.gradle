@@ -16,7 +16,7 @@ ext {
     library = [
             kotlin           : '1.1.2-3',
             android_support  : '25.3.1',
-            constraint_layout: '1.0.1',
+            constraint_layout: '1.0.2',
             butterknife      : '8.6.0',
             dagger           : '2.10',
             okhttp           : '3.8.0',
@@ -54,6 +54,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.2-3"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.1.2-3"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

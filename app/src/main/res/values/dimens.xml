@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="default_margin">16dp</dimen>
+
+    <!-- Login Screen -->
+    <dimen name="login_screen_login_layout_margin_top">16dp</dimen>
+    <dimen name="login_screen_login_field_drawable_padding">8dp</dimen>
+    <dimen name="login_screen_password_layout_margin_top">16dp</dimen>
+    <dimen name="login_screen_password_field_drawable_padding">8dp</dimen>
+    <dimen name="login_screen_sign_in_button_margin_top">8dp</dimen>
+    <dimen name="login_screen_guest_button_margin_top">8dp</dimen>
+    <dimen name="login_screen_password_layout_padding">4dp</dimen>
+    <dimen name="login_screen_login_layout_padding">4dp</dimen>
+    <dimen name="login_screen_title_text_size">26sp</dimen>
+</resources>

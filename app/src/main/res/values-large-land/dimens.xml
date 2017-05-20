@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="default_margin">32dp</dimen>
+
+    <!-- Login Screen -->
+    <dimen name="login_screen_title_text_size">42sp</dimen>
+    <item name="login_screen_start_guideline_fraction" type="dimen">0.2</item>
+    <item name="login_screen_end_guideline_fraction" type="dimen">0.8</item>
+</resources>
