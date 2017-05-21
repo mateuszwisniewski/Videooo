@@ -26,6 +26,7 @@ class ApiKeyInterceptorTest {
                             .code(200)
                             .protocol(Protocol.HTTP_1_0)
                             .request(it.arguments[0] as Request)
+                            .message("OK")
                             .build()
                 }
     }
