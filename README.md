@@ -6,10 +6,10 @@ app:
 core:  
 [![codecov][coverage-svg-core]][coverage-link]
 
-[build-status-svg]: https://travis-ci.org/wisnia/Videooo.svg?branch=master
-[build-status-link]: https://travis-ci.org/wisnia/Videooo
-[coverage-svg-app]: https://codecov.io/gh/wisnia/Videooo/branch/master/graphs/badge.svg?flag=app
-[coverage-svg-core]: https://codecov.io/gh/wisnia/Videooo/branch/master/graphs/badge.svg?flag=core
-[coverage-link]: https://codecov.io/gh/wisnia/Videooo
+[build-status-svg]: https://travis-ci.org/mateuszwisniewski/Videooo.svg?branch=master
+[build-status-link]: https://travis-ci.org/mateuszwisniewski/Videooo
+[coverage-svg-app]: https://codecov.io/gh/mateuszwisniewski/Videooo/branch/master/graphs/badge.svg?flag=app
+[coverage-svg-core]: https://codecov.io/gh/mateuszwisniewski/Videooo/branch/master/graphs/badge.svg?flag=core
+[coverage-link]: https://codecov.io/gh/mateuszwisniewski/Videooo
 [license-svg]: https://img.shields.io/badge/License-Apache%202.0-blue.svg
-[license-link]: https://github.com/wisnia/Videooo/blob/master/LICENSE
+[license-link]: https://github.com/mateuszwisniewski/Videooo/blob/master/LICENSE
