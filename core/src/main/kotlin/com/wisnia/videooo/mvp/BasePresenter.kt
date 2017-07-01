@@ -14,6 +14,8 @@ abstract class BasePresenter<V : View> : Presenter<V> {
         }
     }
 
+    override fun startPresenting() {}
+
     override fun detachUI() {
         this.view = null
     }
