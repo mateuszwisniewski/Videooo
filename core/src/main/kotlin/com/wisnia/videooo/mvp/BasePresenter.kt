@@ -1,12 +1,14 @@
 package com.wisnia.videooo.mvp
 
+import java.lang.ref.WeakReference
+
 abstract class BasePresenter<V : View> : Presenter<V> {
 
-    var view: V? = null
+    protected var view: WeakReference<V>? = null
     private var firstAttach = true
 
     override fun attachUI(view: V) {
-        this.view = view
+        this.view = WeakReference(view)
 
         if (firstAttach) {
             startPresenting()
@@ -17,6 +19,6 @@ abstract class BasePresenter<V : View> : Presenter<V> {
     override fun startPresenting() {}
 
     override fun detachUI() {
-        this.view = null
+        this.view?.clear()
     }
 }

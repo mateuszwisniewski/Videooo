@@ -1,9 +1,9 @@
 package com.wisnia.videooo.network
 
 import com.wisnia.videooo.network.data.Timeout
+import io.reactivex.Observable
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import rx.Observable
 
 class OkHttpClientProvider(interceptors: List<Interceptor>, timeout: Timeout) {
 
@@ -11,7 +11,7 @@ class OkHttpClientProvider(interceptors: List<Interceptor>, timeout: Timeout) {
 
     init {
         val builder: OkHttpClient.Builder = OkHttpClient.Builder()
-        Observable.from(interceptors)
+        Observable.fromIterable(interceptors)
                 .forEach { builder.addInterceptor(it) }
         builder.connectTimeout(timeout.time, timeout.unit)
         okHttpClient = builder.build()

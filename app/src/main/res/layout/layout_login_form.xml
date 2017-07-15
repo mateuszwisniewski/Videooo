@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/auth_login_input"
+        android:id="@+id/authLoginInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/login_screen_login_layout_margin_top"
@@ -32,7 +32,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/auth_title">
 
-        <android.support.v7.widget.AppCompatEditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/auth_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/auth_password_input"
+        android:id="@+id/authPasswordInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/login_screen_password_layout_margin_top"
@@ -52,10 +52,10 @@
         android:padding="@dimen/login_screen_password_layout_padding"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auth_login_input"
+        app:layout_constraintTop_toBottomOf="@id/authLoginInput"
         app:passwordToggleEnabled="true">
 
-        <android.support.v7.widget.AppCompatEditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/auth_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/auth_sign_in_button"
+        android:id="@+id/authSignInButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/login_screen_sign_in_button_margin_top"
@@ -76,10 +76,10 @@
         app:backgroundTint="@color/colorAccent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auth_password_input" />
+        app:layout_constraintTop_toBottomOf="@id/authPasswordInput" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/auth_register_button"
+        android:id="@+id/authRegisterButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/login_screen_sign_in_button_margin_top"
@@ -88,10 +88,10 @@
         app:backgroundTint="@color/colorAccentLight"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auth_sign_in_button" />
+        app:layout_constraintTop_toBottomOf="@id/authSignInButton" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/auth_guest_button"
+        android:id="@+id/authGuestButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/login_screen_guest_button_margin_top"
@@ -99,5 +99,5 @@
         app:backgroundTint="@color/colorPrimaryLight"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auth_register_button" />
+        app:layout_constraintTop_toBottomOf="@id/authRegisterButton" />
 </merge>

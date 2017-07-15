@@ -60,10 +60,6 @@ android {
         htmlOutput file("$quality.reports_dir/lint/lint-result.html")
     }
 
-    packagingOptions {
-        exclude 'META-INF/rxjava.properties'
-    }
-
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
         test.java.srcDirs += 'src/test/kotlin'
@@ -83,15 +79,11 @@ dependencies {
     compile "com.google.dagger:dagger:$lib.dagger"
     kapt "com.google.dagger:dagger-compiler:$lib.dagger"
 
-    // ButterKnife
-    compile "com.jakewharton:butterknife:$lib.butterknife"
-    kapt "com.jakewharton:butterknife-compiler:$lib.butterknife"
-
     // Retrofit
     compile "com.squareup.okhttp3:logging-interceptor:$lib.okhttp"
     compile "com.squareup.retrofit2:retrofit:$lib.retrofit"
     compile "com.squareup.retrofit2:converter-gson:$lib.retrofit"
-    compile "com.squareup.retrofit2:adapter-rxjava:$lib.retrofit"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$lib.retrofit"
 
     // Rx
     compile "io.reactivex.rxjava2:rxandroid:$lib.rxandroid"

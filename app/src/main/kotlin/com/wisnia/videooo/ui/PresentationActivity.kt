@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.wisnia.videooo.mvp.Presenter
 import com.wisnia.videooo.mvp.View
+import java.lang.ref.WeakReference
 
 abstract class PresentationActivity<in V : View, Component> : AppCompatActivity(), View {
 
     private lateinit var presenter: Presenter<V>
-    private lateinit var view: V
+    private lateinit var view: WeakReference<V>
     var component: Component? = null
         get() = field ?: onBuildComponent()
 
@@ -33,7 +34,9 @@ abstract class PresentationActivity<in V : View, Component> : AppCompatActivity(
     }
 
     override fun onStop() {
-        detachUI()
+        if (isFinishing) {
+            detachUI()
+        }
         super.onStop()
     }
 

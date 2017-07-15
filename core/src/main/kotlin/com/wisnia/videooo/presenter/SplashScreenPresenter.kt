@@ -7,6 +7,6 @@ import javax.inject.Inject
 class SplashScreenPresenter @Inject constructor() : BasePresenter<SplashScreenView>() {
 
     override fun startPresenting() {
-        view?.showLoginScreen()
+        view?.get()?.showLoginScreen()
     }
 }

@@ -7,10 +7,8 @@ import com.wisnia.videooo.dependency.modules.ApplicationModule
 
 class VideoooApplication : Application() {
 
-    lateinit private var appComponent: ApplicationComponent
-
-    fun getAppComponent(): ApplicationComponent {
-        return appComponent
+    companion object {
+        lateinit var appComponent: ApplicationComponent
     }
 
     override fun onCreate() {

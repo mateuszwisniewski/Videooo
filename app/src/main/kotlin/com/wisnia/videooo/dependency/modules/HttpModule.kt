@@ -2,10 +2,12 @@ package com.wisnia.videooo.dependency.modules
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
+import com.wisnia.videooo.BuildConfig
 import com.wisnia.videooo.network.HttpServiceProvider
 import com.wisnia.videooo.network.OkHttpClientProvider
 import com.wisnia.videooo.network.RetrofitServiceProvider
 import com.wisnia.videooo.network.data.Timeout
+import com.wisnia.videooo.network.interceptor.ApiKeyInterceptor
 import com.wisnia.videooo.network.interceptor.data.Interceptors
 import dagger.Module
 import dagger.Provides
@@ -14,12 +16,12 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-@Module
+@Module(includes = arrayOf(RestRepositoryModule::class))
 class HttpModule {
 
     private val URL = "https://api.themoviedb.org/3/"
@@ -46,9 +48,12 @@ class HttpModule {
     @Singleton
     @Provides
     internal fun provideInterceptors(): Interceptors {
+        val apiKeyInterceptor = ApiKeyInterceptor(BuildConfig.tmdb_api_key)
+
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-        val interceptorsList = listOf(loggingInterceptor)
+
+        val interceptorsList = listOf(apiKeyInterceptor, loggingInterceptor)
         return Interceptors(interceptorsList)
     }
 
@@ -69,6 +74,6 @@ class HttpModule {
     @Singleton
     @Provides
     internal fun provideCallAdapterFactory(): CallAdapter.Factory {
-        return RxJavaCallAdapterFactory.create()
+        return RxJava2CallAdapterFactory.create()
     }
 }
