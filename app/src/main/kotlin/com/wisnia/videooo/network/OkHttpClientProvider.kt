@@ -5,19 +5,15 @@ import io.reactivex.Observable
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 
-class OkHttpClientProvider(interceptors: List<Interceptor>, timeout: Timeout) {
+class OkHttpClientProvider(val interceptors: List<Interceptor>, val timeout: Timeout) {
 
-    private val okHttpClient: OkHttpClient
-
-    init {
-        val builder: OkHttpClient.Builder = OkHttpClient.Builder()
-        Observable.fromIterable(interceptors)
-                .forEach { builder.addInterceptor(it) }
-        builder.connectTimeout(timeout.time, timeout.unit)
-        okHttpClient = builder.build()
-    }
-
-    fun getHttpClient(): OkHttpClient {
-        return okHttpClient
-    }
+    val okHttpClient: OkHttpClient
+        get() {
+            return OkHttpClient.Builder().let {
+                Observable.fromIterable(interceptors)
+                        .forEach { interceptor -> it.addInterceptor(interceptor) }
+                it.connectTimeout(timeout.time, timeout.unit)
+                it.build()
+            }
+        }
 }

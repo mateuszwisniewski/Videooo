@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.wisnia.videooo.R
 import com.wisnia.videooo.VideoooApplication
 import com.wisnia.videooo.data.authentication.Token
-import com.wisnia.videooo.dependency.components.DaggerLoginComponent
 import com.wisnia.videooo.dependency.components.LoginComponent
 import com.wisnia.videooo.mvp.Presenter
 import com.wisnia.videooo.presenter.LoginPresenter
@@ -19,9 +18,8 @@ class LoginActivity : PresentationActivity<LoginView, Any>(), LoginView {
     lateinit var presenter: LoginPresenter
 
     override fun onBuildComponent(): LoginComponent {
-        val loginComponent = DaggerLoginComponent.builder()
-                .applicationComponent(VideoooApplication.appComponent)
-                .build()
+        val loginComponent = VideoooApplication.appComponent
+                .addLoginComponent()
         loginComponent.inject(this)
         return loginComponent
     }
