@@ -54,6 +54,7 @@ android {
 
     lintOptions {
         abortOnError true
+        ignoreWarnings false
         xmlReport false
         htmlReport true
         lintConfig file("$quality.config_dir/lint.xml")
