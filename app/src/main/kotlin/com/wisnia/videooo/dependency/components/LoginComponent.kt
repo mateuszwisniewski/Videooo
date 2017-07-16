@@ -2,10 +2,10 @@ package com.wisnia.videooo.dependency.components
 
 import com.wisnia.videooo.dependency.scope.Presenter
 import com.wisnia.videooo.ui.activity.LoginActivity
-import dagger.Component
+import dagger.Subcomponent
 
 @Presenter
-@Component(dependencies = arrayOf(ApplicationComponent::class))
+@Subcomponent
 interface LoginComponent {
 
     fun inject(activity: LoginActivity)

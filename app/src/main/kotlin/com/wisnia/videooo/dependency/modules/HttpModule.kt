@@ -21,33 +21,31 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-@Module(includes = arrayOf(RestRepositoryModule::class))
+@Module(includes = arrayOf(ApiRepositoryModule::class))
 class HttpModule {
 
     private val URL = "https://api.themoviedb.org/3/"
+    private val CONNECTION_TIMEOUT: Long = 5
 
     @Singleton
     @Provides
-    internal fun provideHttpService(converterFactory: Converter.Factory, callAdapterFactory: CallAdapter.Factory, okHttpClient: OkHttpClient): HttpServiceProvider {
+    fun provideHttpService(): HttpServiceProvider {
         val retrofit = Retrofit.Builder()
                 .baseUrl(URL)
-                .client(okHttpClient)
-                .addConverterFactory(converterFactory)
-                .addCallAdapterFactory(callAdapterFactory)
+                .client(getHttpClient())
+                .addConverterFactory(getConverterFactory())
+                .addCallAdapterFactory(getCallAdapterFactory())
                 .build()
         return RetrofitServiceProvider(retrofit)
     }
 
-    @Singleton
-    @Provides
-    internal fun provideHttpClient(interceptors: Interceptors, timeout: Timeout): OkHttpClient {
-        val okHttpClientProvider: OkHttpClientProvider = OkHttpClientProvider(interceptors.interceptors, timeout)
-        return okHttpClientProvider.getHttpClient()
+    fun getHttpClient(): OkHttpClient {
+        val connectionTimeout = getConnectionTimeout()
+        val interceptors = getInterceptors()
+        return OkHttpClientProvider(interceptors.interceptors, connectionTimeout).okHttpClient
     }
 
-    @Singleton
-    @Provides
-    internal fun provideInterceptors(): Interceptors {
+    fun getInterceptors(): Interceptors {
         val apiKeyInterceptor = ApiKeyInterceptor(BuildConfig.tmdb_api_key)
 
         val loggingInterceptor = HttpLoggingInterceptor()
@@ -57,23 +55,18 @@ class HttpModule {
         return Interceptors(interceptorsList)
     }
 
-    @Singleton
-    @Provides
-    internal fun provideTimeout(): Timeout {
-        return Timeout(5, TimeUnit.SECONDS)
+    fun getConnectionTimeout(): Timeout {
+        return Timeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
     }
 
-    @Singleton
-    @Provides
-    internal fun provideConverterFactory(): Converter.Factory {
-        val gson = GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+    fun getConverterFactory(): Converter.Factory {
+        return GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create()
-        return GsonConverterFactory.create(gson)
+                .let { GsonConverterFactory.create(it) }
     }
 
-    @Singleton
-    @Provides
-    internal fun provideCallAdapterFactory(): CallAdapter.Factory {
+    fun getCallAdapterFactory(): CallAdapter.Factory {
         return RxJava2CallAdapterFactory.create()
     }
 }
