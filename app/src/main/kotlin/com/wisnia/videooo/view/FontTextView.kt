@@ -13,7 +13,7 @@ class FontTextView(context: Context, attrs: AttributeSet) : TextView(context, at
 
     fun initAttributes(context: Context, attrs: AttributeSet) {
         val array = context.obtainStyledAttributes(attrs, R.styleable.FontTextView)
-        val font = array.getString(R.styleable.FontTextView_font)
+        val font = array.getString(R.styleable.FontTextView_font_name)
         setTypeface(context, font)
         array.recycle()
     }
