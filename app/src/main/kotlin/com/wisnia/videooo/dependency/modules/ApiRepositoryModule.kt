@@ -12,7 +12,6 @@ class ApiRepositoryModule {
 
     @Provides
     @Singleton
-    fun provideTokenRepository(httpServiceProvider: HttpServiceProvider): TokenRepository {
-        return ApiTokenRepository(httpServiceProvider)
-    }
+    fun provideTokenRepository(httpServiceProvider: HttpServiceProvider): TokenRepository =
+            ApiTokenRepository(httpServiceProvider)
 }

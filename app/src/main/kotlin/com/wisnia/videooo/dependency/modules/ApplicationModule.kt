@@ -8,17 +8,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Singleton
 
 @Module
-class ApplicationModule(val application: Application) {
+class ApplicationModule(private val application: Application) {
 
     @Singleton
     @Provides
-    fun provideApplication(): Application {
-        return application
-    }
+    fun provideApplication(): Application = application
 
     @Singleton
     @Provides
-    fun provideMainThreadScheduler(): Scheduler {
-        return AndroidSchedulers.mainThread()
-    }
+    fun provideMainThreadScheduler(): Scheduler = AndroidSchedulers.mainThread()
 }

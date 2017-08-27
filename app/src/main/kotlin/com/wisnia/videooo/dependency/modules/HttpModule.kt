@@ -13,8 +13,6 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.CallAdapter
-import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -39,13 +37,13 @@ class HttpModule {
         return RetrofitServiceProvider(retrofit)
     }
 
-    fun getHttpClient(): OkHttpClient {
+    private fun getHttpClient(): OkHttpClient {
         val connectionTimeout = getConnectionTimeout()
         val interceptors = getInterceptors()
         return OkHttpClientProvider(interceptors.interceptors, connectionTimeout).okHttpClient
     }
 
-    fun getInterceptors(): Interceptors {
+    private fun getInterceptors(): Interceptors {
         val apiKeyInterceptor = ApiKeyInterceptor(BuildConfig.tmdb_api_key)
 
         val loggingInterceptor = HttpLoggingInterceptor()
@@ -55,18 +53,12 @@ class HttpModule {
         return Interceptors(interceptorsList)
     }
 
-    fun getConnectionTimeout(): Timeout {
-        return Timeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
-    }
+    private fun getConnectionTimeout() = Timeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
 
-    fun getConverterFactory(): Converter.Factory {
-        return GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create()
-                .let { GsonConverterFactory.create(it) }
-    }
+    private fun getConverterFactory() = GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .create()
+            .let { GsonConverterFactory.create(it) }
 
-    fun getCallAdapterFactory(): CallAdapter.Factory {
-        return RxJava2CallAdapterFactory.create()
-    }
+    private fun getCallAdapterFactory() = RxJava2CallAdapterFactory.create()
 }

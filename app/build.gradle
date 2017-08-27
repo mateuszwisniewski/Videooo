@@ -64,6 +64,10 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
         test.java.srcDirs += 'src/test/kotlin'
     }
+
+    kapt {
+        generateStubs = true
+    }
 }
 
 dependencies {
@@ -76,7 +80,9 @@ dependencies {
     compile "com.android.support.constraint:constraint-layout:$lib.constraint_layout"
 
     // Dagger
-    compile "com.google.dagger:dagger:$lib.dagger"
+    compile "com.google.dagger:dagger-android:$lib.dagger"
+    compile "com.google.dagger:dagger-android-support:$lib.dagger"
+    kapt "com.google.dagger:dagger-android-processor:$lib.dagger"
     kapt "com.google.dagger:dagger-compiler:$lib.dagger"
 
     // Retrofit
@@ -94,5 +100,6 @@ dependencies {
 
     androidTestCompile("com.android.support.test.espresso:espresso-core:$tests.espresso", {
         exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs'
     })
 }
