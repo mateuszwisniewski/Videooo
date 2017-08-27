@@ -8,8 +8,9 @@ import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class LoginPresenter @Inject constructor(val tokenRepository: TokenRepository,
-                                         val mainThreadScheduler: Scheduler) : BasePresenter<LoginView>() {
+class LoginPresenter @Inject constructor(private val tokenRepository: TokenRepository,
+                                         private val mainThreadScheduler: Scheduler) : BasePresenter<LoginView>() {
+
     fun signIn() {
         tokenRepository.token
                 .subscribeOn(Schedulers.io())

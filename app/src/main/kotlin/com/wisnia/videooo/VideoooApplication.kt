@@ -1,24 +1,27 @@
 package com.wisnia.videooo
 
+import android.app.Activity
 import android.app.Application
-import com.wisnia.videooo.dependency.components.ApplicationComponent
 import com.wisnia.videooo.dependency.components.DaggerApplicationComponent
 import com.wisnia.videooo.dependency.modules.ApplicationModule
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import javax.inject.Inject
 
-class VideoooApplication : Application() {
+class VideoooApplication : Application(), HasActivityInjector {
 
-    companion object {
-        lateinit var appComponent: ApplicationComponent
-    }
+    @Inject
+    @Suppress("MemberVisibilityCanPrivate")
+    lateinit var dispatchingActivityInjector: DispatchingAndroidInjector<Activity>
+
+    override fun activityInjector(): AndroidInjector<Activity> = dispatchingActivityInjector
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = buildApplicationComponent()
-    }
-
-    private fun buildApplicationComponent(): ApplicationComponent {
-        return DaggerApplicationComponent.builder()
+        DaggerApplicationComponent.builder()
                 .applicationModule(ApplicationModule(this))
                 .build()
+                .inject(this)
     }
 }
