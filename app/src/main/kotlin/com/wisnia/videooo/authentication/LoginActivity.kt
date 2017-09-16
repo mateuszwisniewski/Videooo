@@ -1,12 +1,12 @@
-package com.wisnia.videooo.ui.activity
+package com.wisnia.videooo.authentication
 
 import android.os.Bundle
 import com.wisnia.videooo.R
+import com.wisnia.videooo.authentication.presentation.LoginPresenter
+import com.wisnia.videooo.authentication.view.LoginView
 import com.wisnia.videooo.data.authentication.Token
 import com.wisnia.videooo.mvp.Presenter
-import com.wisnia.videooo.presenter.LoginPresenter
-import com.wisnia.videooo.ui.PresentationActivity
-import com.wisnia.videooo.view.LoginView
+import com.wisnia.videooo.mvp.PresentationActivity
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.layout_login_form.*
 import javax.inject.Inject

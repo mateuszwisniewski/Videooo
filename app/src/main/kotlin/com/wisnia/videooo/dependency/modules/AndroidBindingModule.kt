@@ -1,7 +1,7 @@
 package com.wisnia.videooo.dependency.modules
 
-import com.wisnia.videooo.ui.activity.LoginActivity
-import com.wisnia.videooo.ui.activity.SplashScreenActivity
+import com.wisnia.videooo.authentication.LoginActivity
+import com.wisnia.videooo.splashscreen.SplashScreenActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

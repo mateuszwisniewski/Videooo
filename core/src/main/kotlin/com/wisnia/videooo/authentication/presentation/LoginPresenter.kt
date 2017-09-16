@@ -1,9 +1,9 @@
-package com.wisnia.videooo.presenter
+package com.wisnia.videooo.authentication.presentation
 
+import com.wisnia.videooo.authentication.view.LoginView
 import com.wisnia.videooo.data.authentication.Token
 import com.wisnia.videooo.mvp.BasePresenter
 import com.wisnia.videooo.repository.authentication.TokenRepository
-import com.wisnia.videooo.view.LoginView
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject

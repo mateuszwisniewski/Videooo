@@ -1,4 +1,4 @@
-package com.wisnia.videooo.view
+package com.wisnia.videooo.authentication.view
 
 import com.wisnia.videooo.data.authentication.Token
 import com.wisnia.videooo.mvp.View

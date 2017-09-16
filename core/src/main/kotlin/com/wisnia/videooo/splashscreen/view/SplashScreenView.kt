@@ -1,4 +1,4 @@
-package com.wisnia.videooo.view
+package com.wisnia.videooo.splashscreen.view
 
 import com.wisnia.videooo.mvp.View
 
