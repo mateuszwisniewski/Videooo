@@ -95,6 +95,7 @@ dependencies {
     compile "io.reactivex.rxjava2:rxandroid:$lib.rxandroid"
     compile "io.reactivex.rxjava2:rxjava:$lib.rxjava"
 
+    // Tests
     testCompile "junit:junit:$tests.junit"
     testCompile "org.mockito:mockito-core:$tests.mockito"
 

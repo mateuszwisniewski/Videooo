@@ -2,9 +2,9 @@ package com.wisnia.videooo.splashscreen
 
 import android.content.Intent
 import android.os.Bundle
-import com.wisnia.videooo.authentication.LoginActivity
-import com.wisnia.videooo.mvp.Presenter
+import com.wisnia.videooo.login.LoginActivity
 import com.wisnia.videooo.mvp.PresentationActivity
+import com.wisnia.videooo.mvp.Presenter
 import com.wisnia.videooo.splashscreen.presentation.SplashScreenPresenter
 import com.wisnia.videooo.splashscreen.view.SplashScreenView
 import dagger.android.AndroidInjection
