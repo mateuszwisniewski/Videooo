@@ -4,7 +4,7 @@ final def tmdbProperties = rootProject.file('secure/tmdb.properties')
 ext {
     configuration = [
             application_id     : 'com.wisnia.videooo',
-            build_tools_version: '26.0.1',
+            build_tools_version: '27.0.0',
             compile_sdk_version: 26,
             min_sdk_version    : 17,
             target_sdk_version : 26,
@@ -14,8 +14,8 @@ ext {
     ]
 
     library = [
-            kotlin           : '1.1.3-2',
-            android_support  : '26.0.1',
+            kotlin           : '1.1.51',
+            android_support  : '27.0.0',
             constraint_layout: '1.0.2',
             dagger           : '2.11',
             okhttp           : '3.8.0',
@@ -47,14 +47,15 @@ ext {
 
 buildscript {
     repositories {
+        google()
         jcenter()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.3-2"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.1.3"
+        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.51"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.1.51"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -63,9 +64,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url 'https://maven.google.com'
-        }
+        google()
     }
 }
 
