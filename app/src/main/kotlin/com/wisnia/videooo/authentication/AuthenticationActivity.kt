@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import com.wisnia.videooo.R
+import com.wisnia.videooo.authentication.permission.PermissionState
 import com.wisnia.videooo.data.authentication.Token
 import com.wisnia.videooo.login.TOKEN_KEY
 import com.wisnia.videooo.mvp.EmptyPresenter
@@ -40,6 +41,7 @@ class AuthenticationActivity : PresentationActivity<View>() {
             when (it) {
                 PermissionState.ALLOW -> setResult(Activity.RESULT_OK)
                 PermissionState.DENY -> setResult(Activity.RESULT_CANCELED)
+                PermissionState.NONE -> Any()
             }
         }
     }
