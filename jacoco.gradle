@@ -23,23 +23,28 @@ def moduleExcludes = [
 ]
 
 def moduleClassDirs = [
-        'app' : 'build/intermediates/classes/debug',
-        'core': 'build/classes'
+        'app' : "$buildDir/intermediates/classes/debug",
+        'core': "$buildDir/classes"
+]
+
+def moduleKotlinClassDirs = [
+        'app' : "$buildDir/tmp/kotlin-classes/debug",
+        'core': "$buildDir/classes"
 ]
 
 def moduleJacocoExec = [
-        'app' : 'build/jacoco/testDebugUnitTest.exec',
-        'core': 'build/jacoco/test.exec'
+        'app' : "$buildDir/jacoco/testDebugUnitTest.exec",
+        'core': "$buildDir/jacoco/test.exec"
 ]
 
 task testReport(type: JacocoReport, dependsOn: "test") {
     group = "Reporting"
     description = "Generate Jacoco coverage reports..."
 
-    classDirectories = fileTree(
-            dir: moduleClassDirs[project.name],
-            excludes: moduleExcludes[project.name]
-    )
+    def debugFileTree = fileTree(dir: moduleClassDirs[project.name], excludes: moduleExcludes[project.name])
+    def debugKotlinFileTree = fileTree(dir: moduleKotlinClassDirs[project.name], excludes: moduleExcludes[project.name])
+
+    classDirectories = files([debugFileTree, debugKotlinFileTree])
 
     def coverageSourceDirs = [
             "src/main/java"
@@ -53,7 +58,7 @@ task testReport(type: JacocoReport, dependsOn: "test") {
         csv.enabled false
         xml {
             enabled true
-            destination "${buildDir}/reports/jacoco/report.xml"
+            destination file("${buildDir}/reports/jacoco/report.xml")
         }
     }
 }

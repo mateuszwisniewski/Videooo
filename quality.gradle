@@ -35,7 +35,7 @@ task pmd(type: Pmd) {
         xml.enabled = false
         html.enabled = true
         html {
-            destination "$quality.reports_dir/pmd/pmd.html"
+            destination file("$quality.reports_dir/pmd/pmd.html")
         }
     }
 }
