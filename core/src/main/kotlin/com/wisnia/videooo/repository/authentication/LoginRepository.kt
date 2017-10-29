@@ -3,7 +3,7 @@ package com.wisnia.videooo.repository.authentication
 import com.wisnia.videooo.data.authentication.Token
 import io.reactivex.Single
 
-interface TokenRepository {
+interface LoginRepository {
 
-    val token: Single<Token>
+    fun signIn(username: String, password: String): Single<Token>
 }
