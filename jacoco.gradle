@@ -17,6 +17,7 @@ def moduleExcludes = [
                  '**/*Activity.class',
                  '**/*Module*.*',
                  '**/*Component*.*',
+                 '**/*Extension.*',
                  '**/data/**'],
         'core':
                 ['**/data/**']
