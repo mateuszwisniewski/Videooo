@@ -1,5 +1,6 @@
 package com.wisnia.videooo.network.interceptor
 
+import com.wisnia.videooo.extension.empty
 import okhttp3.*
 import org.junit.Before
 import org.junit.Test
@@ -13,10 +14,10 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class ApiKeyInterceptorTest {
 
-    val API_KEY_NAME = "api_key"
+    private val apiKeyName = "api_key"
 
     @Mock
-    lateinit var chain: Interceptor.Chain
+    private lateinit var chain: Interceptor.Chain
 
     @Before
     fun setUp() {
@@ -34,21 +35,21 @@ class ApiKeyInterceptorTest {
     @Test(expected = ApiKeyNotFoundException::class)
     fun `when intercept with no api key in request query then throw exception`() {
         // Given
-        val apiKey: String = ""
+        val apiKey = String.empty
 
         // When
-        val interceptor: ApiKeyInterceptor = ApiKeyInterceptor(apiKey)
+        val interceptor = ApiKeyInterceptor(apiKey)
         interceptor.intercept(chain)
     }
 
     @Test
     fun `when intercept with api key in request query then proceed request`() {
         // Given
-        val apiKey: String = "example_api_key"
+        val apiKey = "example_api_key"
         addApiKeyQueryParameter(apiKey)
 
         // When
-        val interceptor: ApiKeyInterceptor = ApiKeyInterceptor(apiKey)
+        val interceptor = ApiKeyInterceptor(apiKey)
         interceptor.intercept(chain)
 
         // Then
@@ -59,7 +60,7 @@ class ApiKeyInterceptorTest {
         val httpUrlBuilder: HttpUrl.Builder = HttpUrl.Builder()
                 .scheme("http")
                 .host("example-host.com")
-                .addQueryParameter(API_KEY_NAME, apiKey)
+                .addQueryParameter(apiKeyName, apiKey)
 
         `when`(chain.request()).thenReturn(Request.Builder()
                 .url(httpUrlBuilder.build())

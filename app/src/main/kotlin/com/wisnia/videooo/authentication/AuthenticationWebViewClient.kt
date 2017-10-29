@@ -7,38 +7,36 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import com.wisnia.videooo.authentication.permission.PermissionInterceptor
+import com.wisnia.videooo.authentication.permission.PermissionState
+import com.wisnia.videooo.authentication.permission.PermissionUrl
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
 import io.reactivex.subjects.PublishSubject
 
 class AuthenticationWebViewClient(token: String) : WebViewClient() {
 
-    private val allowPathSegment = "allow"
-    private val authenticatePath = "/authenticate/$token"
+    private val interceptor: PermissionInterceptor = PermissionInterceptor(token) // todo: use DI here.
 
     private val permissionSubject: PublishSubject<PermissionState> = PublishSubject.create()
     val permissionEvent: Flowable<PermissionState>
-        get() = permissionSubject.toFlowable(BackpressureStrategy.LATEST)
+        get() = permissionSubject.toFlowable(BackpressureStrategy.LATEST).distinctUntilChanged()
 
     @Suppress("OverridingDeprecatedMember", "DEPRECATION")
     override fun shouldInterceptRequest(view: WebView, url: String): WebResourceResponse? {
-        interceptPermissionState(Uri.parse(url))
+        providePermissionEvent(Uri.parse(url))
         return super.shouldInterceptRequest(view, url)
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     override fun shouldInterceptRequest(view: WebView, request: WebResourceRequest): WebResourceResponse? {
-        interceptPermissionState(request.url)
+        providePermissionEvent(request.url)
         return super.shouldInterceptRequest(view, request)
     }
 
-    private fun interceptPermissionState(uri: Uri) {
-        if (uri.encodedPath.contains(authenticatePath)) {
-            if (uri.lastPathSegment.contains(allowPathSegment)) {
-                permissionSubject.onNext(PermissionState.ALLOW)
-            } else {
-                permissionSubject.onNext(PermissionState.DENY)
-            }
-        }
+    private fun providePermissionEvent(uri: Uri) {
+        val permissionUrl = PermissionUrl(uri.encodedPath, uri.lastPathSegment)
+        val state = interceptor.interceptPermissionState(permissionUrl)
+        permissionSubject.onNext(state)
     }
 }
