@@ -6,14 +6,18 @@ def lib = rootProject.ext.library
 def tests = rootProject.ext.testing
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$lib.kotlin"
-    compile "com.google.dagger:dagger:$lib.dagger"
-    compile "com.google.code.gson:gson:$lib.gson"
-    compile "io.reactivex.rxjava2:rxjava:$lib.rxjava"
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$lib.kotlin"
 
-    testCompile "junit:junit:$tests.junit"
-    testCompile "org.mockito:mockito-core:$tests.mockito"
-    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$lib.kotlin"
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:$lib.rxjava"
+
+    implementation "com.google.code.gson:gson:$lib.gson"
+    implementation "javax.inject:javax.inject:$lib.inject"
+
+    // Tests
+    testImplementation "junit:junit:$tests.junit"
+    testImplementation "org.mockito:mockito-core:$tests.mockito"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$lib.kotlin"
 }
