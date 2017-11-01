@@ -1,7 +1,11 @@
 package com.wisnia.videooo.network.interceptor
 
 import com.wisnia.videooo.extension.empty
-import okhttp3.*
+import okhttp3.Interceptor
+import okhttp3.Protocol
+import okhttp3.Request
+import okhttp3.Response
+import okhttp3.HttpUrl
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

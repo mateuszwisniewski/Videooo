@@ -2,8 +2,6 @@ package com.wisnia.videooo.mvp
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.wisnia.videooo.mvp.Presenter
-import com.wisnia.videooo.mvp.View
 import java.lang.ref.WeakReference
 
 abstract class PresentationActivity<in V : View> : AppCompatActivity(), View {

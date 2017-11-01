@@ -1,9 +1,9 @@
 apply plugin: 'jacoco'
 
-def test = rootProject.ext.testing
+def quality = rootProject.ext.quality
 
 jacoco {
-    toolVersion = "$test.jacoco"
+    toolVersion = "$quality.jacoco"
 }
 
 def moduleExcludes = [
