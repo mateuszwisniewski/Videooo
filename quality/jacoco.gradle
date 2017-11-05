@@ -14,7 +14,7 @@ def moduleExcludes = [
                  '**/BuildConfig.*',
                  '**/Manifest*.*',
                  '**/VideoooApplication*.*',
-                 '**/*Activity.class',
+                 '**/*Activity.*',
                  '**/*Module*.*',
                  '**/*Component*.*',
                  '**/*Extension.*',

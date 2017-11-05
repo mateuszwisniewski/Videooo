@@ -21,16 +21,16 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="@dimen/login_screen_end_guideline_fraction" />
 
-    <com.wisnia.videooo.view.FontTextView
+    <TextView
         android:id="@+id/auth_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/ic_movie_filter"
+        android:fontFamily="@font/boris_black_bloxx"
         android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@android:color/white"
         android:textSize="@dimen/login_screen_title_text_size"
-        app:font_name="BorisBlackBloxx.ttf"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
