@@ -13,8 +13,10 @@ def moduleExcludes = [
                  '**/*$ViewBinder*.*',
                  '**/BuildConfig.*',
                  '**/Manifest*.*',
+                 '**/*Injector*.*',
+                 '**/*Factory.*',
                  '**/VideoooApplication*.*',
-                 '**/*Activity.*',
+                 '**/*Activity*.*',
                  '**/*Module*.*',
                  '**/*Component*.*',
                  '**/*Extension.*',
@@ -48,7 +50,7 @@ task testReport(type: JacocoReport, dependsOn: "test") {
     classDirectories = files([debugFileTree, debugKotlinFileTree])
 
     def coverageSourceDirs = [
-            "src/main/java"
+            "src/main/kotlin"
     ]
     additionalSourceDirs = files(coverageSourceDirs)
     sourceDirectories = files(coverageSourceDirs)
