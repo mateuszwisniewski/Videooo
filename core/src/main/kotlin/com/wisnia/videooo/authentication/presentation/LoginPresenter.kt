@@ -17,29 +17,32 @@ class LoginPresenter @Inject constructor(private val tokenRepository: TokenRepos
         loginRepository.signIn(username, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(mainThreadScheduler)
-                .subscribe({ onSignIn(it) }, { onError(it) })
+                .subscribe({ onSignIn() }, { onError(it) })
     }
 
-    private fun onSignIn(token: Token) {
-        view?.get()?.onSignedIn(token)
+    fun signInAsGuest() {
+        loginRepository.signInAsGuest
+                .subscribeOn(Schedulers.io())
+                .observeOn(mainThreadScheduler)
+                .subscribe({ onSignIn() }, { onError(it) })
+    }
+
+    private fun onSignIn() {
+        view?.get()?.onSignedIn()
     }
 
     fun signInWebsite() {
         tokenRepository.token
                 .subscribeOn(Schedulers.io())
                 .observeOn(mainThreadScheduler)
-                .subscribe({ onSignInWebsite(it) }, { onError(it) })
+                .subscribe({ onWebsiteTokenReceived(it) }, { onError(it) })
     }
 
-    private fun onSignInWebsite(token: Token) {
-        view?.get()?.onSignedInWebsite(token)
+    private fun onWebsiteTokenReceived(token: Token) {
+        view?.get()?.onWebsiteTokenReceived(token)
     }
 
     private fun onError(error: Throwable) {
         view?.get()?.showError(error)
-    }
-
-    fun signInAsGuest() {
-        TODO("not implemented")
     }
 }

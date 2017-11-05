@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.wisnia.videooo.R
 import com.wisnia.videooo.authentication.permission.PermissionState
 import com.wisnia.videooo.data.authentication.Token
-import com.wisnia.videooo.login.tokenKey
+import com.wisnia.videooo.login.TOKEN_KEY
 import com.wisnia.videooo.mvp.EmptyPresenter
 import com.wisnia.videooo.mvp.PresentationActivity
 import com.wisnia.videooo.mvp.Presenter
@@ -21,7 +21,7 @@ class AuthenticationActivity : PresentationActivity<View>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activty_auth_permission)
 
-        val token = intent.getSerializableExtra(tokenKey) as Token
+        val token = intent.getSerializableExtra(TOKEN_KEY) as Token
         val webViewClient = AuthenticationWebViewClient(token.token)
         setupWebView(webViewClient, token)
         subscribeAccessPermissionEvents(webViewClient)

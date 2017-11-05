@@ -1,9 +1,12 @@
 package com.wisnia.videooo.repository.authentication
 
+import com.wisnia.videooo.data.authentication.GuestSession
 import com.wisnia.videooo.data.authentication.Session
-import io.reactivex.Observable
+import io.reactivex.Single
 
 interface SessionRepository {
 
-    val session: Observable<Session>
+    fun session(requestToken: String): Single<Session>
+
+    val guestSession: Single<GuestSession>
 }

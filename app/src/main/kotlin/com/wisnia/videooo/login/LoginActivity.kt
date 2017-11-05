@@ -16,8 +16,8 @@ import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.layout_login_form.*
 import javax.inject.Inject
 
-private val authenticationRequestCode = 101
-val tokenKey = "token"
+private const val WEB_AUTH_REQUEST_CODE = 101
+const val TOKEN_KEY = "token"
 
 class LoginActivity : PresentationActivity<LoginView>(), LoginView {
 
@@ -47,21 +47,21 @@ class LoginActivity : PresentationActivity<LoginView>(), LoginView {
         // TODO: show response error
     }
 
-    override fun onSignedIn(token: Token) {
+    override fun onSignedIn() {
         // TODO: show movies screen
     }
 
-    override fun onSignedInWebsite(token: Token) {
+    override fun onWebsiteTokenReceived(token: Token) {
         val intent = Intent(this, AuthenticationActivity::class.java)
-        intent.putExtra(tokenKey, token)
-        startActivityForResult(intent, authenticationRequestCode)
+        intent.putExtra(TOKEN_KEY, token)
+        startActivityForResult(intent, WEB_AUTH_REQUEST_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == authenticationRequestCode) handleAuthenticationResult(resultCode)
+        if (requestCode == WEB_AUTH_REQUEST_CODE) handleWebsiteAuthenticationResult(resultCode)
     }
 
-    private fun handleAuthenticationResult(resultCode: Int) {
+    private fun handleWebsiteAuthenticationResult(resultCode: Int) {
         when (resultCode) {
             Activity.RESULT_OK -> {
                 // TODO: show movies screen

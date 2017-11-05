@@ -7,7 +7,7 @@ interface LoginView : View {
 
     fun showError(error: Throwable)
 
-    fun onSignedIn(token: Token)
+    fun onSignedIn()
 
-    fun onSignedInWebsite(token: Token)
+    fun onWebsiteTokenReceived(token: Token)
 }

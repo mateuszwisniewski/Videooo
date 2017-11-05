@@ -19,11 +19,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+private const val URL = "https://api.themoviedb.org/3/"
+private const val CONNECTION_TIMEOUT: Long = 5
+
 @Module(includes = arrayOf(ApiRepositoryModule::class))
 class HttpModule {
-
-    private val URL = "https://api.themoviedb.org/3/"
-    private val CONNECTION_TIMEOUT: Long = 5
 
     @Singleton
     @Provides
