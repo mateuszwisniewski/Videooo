@@ -5,7 +5,8 @@ import io.reactivex.Observable
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 
-class OkHttpClientProvider(val interceptors: List<Interceptor>, val timeout: Timeout) {
+class OkHttpClientProvider(private val interceptors: List<Interceptor>,
+                           private val timeout: Timeout) {
 
     val okHttpClient: OkHttpClient
         get() {
