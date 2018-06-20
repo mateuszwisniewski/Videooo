@@ -7,8 +7,8 @@ android:
   components:
     - tools
     - platform-tools
-    - android-26
-    - build-tools-27.0.0
+    - android-27
+    - build-tools-27.0.3
 
 before_install:
   - mkdir "$ANDROID_HOME/licenses" || true
