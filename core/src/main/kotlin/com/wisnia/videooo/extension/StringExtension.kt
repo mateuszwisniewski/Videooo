@@ -1,4 +1,4 @@
 package com.wisnia.videooo.extension
 
-val String.Companion.empty: String
+val String.Companion.EMPTY: String
     get() = ""

@@ -1,6 +1,6 @@
 package com.wisnia.videooo.authentication.permission
 
-import com.wisnia.videooo.extension.empty
+import com.wisnia.videooo.extension.EMPTY
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,7 +19,7 @@ class PermissionInterceptorTest {
     @Test
     fun `when intercept permission with incorrect authenticate uri path then should return none permission state`() {
         // Given
-        val url = PermissionUrl(incorrectUriPath, String.empty)
+        val url = PermissionUrl(incorrectUriPath, String.EMPTY)
         val interceptor = PermissionInterceptor(exampleToken)
 
         // When

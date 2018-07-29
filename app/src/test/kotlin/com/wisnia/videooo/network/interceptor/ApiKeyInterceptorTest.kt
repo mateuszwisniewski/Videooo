@@ -1,6 +1,6 @@
 package com.wisnia.videooo.network.interceptor
 
-import com.wisnia.videooo.extension.empty
+import com.wisnia.videooo.extension.EMPTY
 import okhttp3.Interceptor
 import okhttp3.Protocol
 import okhttp3.Request
@@ -39,7 +39,7 @@ class ApiKeyInterceptorTest {
     @Test(expected = ApiKeyNotFoundException::class)
     fun `when intercept with no api key in request query then throw exception`() {
         // Given
-        val apiKey = String.empty
+        val apiKey = String.EMPTY
 
         // When
         val interceptor = ApiKeyInterceptor(apiKey)
@@ -57,7 +57,7 @@ class ApiKeyInterceptorTest {
         interceptor.intercept(chain)
 
         // Then
-        `verify`(chain).proceed(any(Request::class.java))
+        verify(chain).proceed(any(Request::class.java))
     }
 
     private fun addApiKeyQueryParameter(apiKey: String) {

@@ -55,6 +55,10 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
         test.java.srcDirs += 'src/test/kotlin'
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -62,6 +66,9 @@ dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$lib.kotlin"
+
+    // Android Architecture
+    implementation "android.arch.lifecycle:extensions:$lib.android_architecture"
 
     // Android Support
     implementation "com.android.support:appcompat-v7:$lib.android_support"

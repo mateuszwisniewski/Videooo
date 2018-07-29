@@ -19,17 +19,19 @@ class ApiRepositoryModule {
     @Provides
     @Singleton
     fun provideTokenDataRepository(httpTokenRepository: HttpTokenRepository): TokenRepository =
-            TokenDataRepository(httpTokenRepository)
+        TokenDataRepository(httpTokenRepository)
 
     @Provides
     @Singleton
-    fun provideLoginDataRepository(httpLoginRepository: HttpLoginRepository,
-                                   httpTokenRepository: HttpTokenRepository,
-                                   httpSessionRepository: HttpSessionRepository): LoginRepository =
-            LoginDataRepository(httpLoginRepository, httpTokenRepository, httpSessionRepository)
+    fun provideLoginDataRepository(
+        httpLoginRepository: HttpLoginRepository,
+        httpTokenRepository: HttpTokenRepository,
+        httpSessionRepository: HttpSessionRepository
+    ): LoginRepository =
+        LoginDataRepository(httpLoginRepository, httpTokenRepository, httpSessionRepository)
 
     @Provides
     @Singleton
     fun provideSessionDataRepository(httpSessionRepository: HttpSessionRepository): SessionRepository =
-            SessionDataRepository(httpSessionRepository)
+        SessionDataRepository(httpSessionRepository)
 }
