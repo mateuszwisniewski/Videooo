@@ -12,7 +12,7 @@ def signing = rootProject.ext.signing
 
 android {
     compileSdkVersion config.compile_sdk_version
-    buildToolsVersion config.build_tools_version
+    buildToolsVersion '28.0.2'
 
     defaultConfig {
         applicationId config.application_id
