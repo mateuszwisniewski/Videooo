@@ -13,4 +13,6 @@
     <dimen name="login_screen_password_layout_padding">4dp</dimen>
     <dimen name="login_screen_login_layout_padding">4dp</dimen>
     <dimen name="login_screen_title_text_size">26sp</dimen>
+    <item name="login_screen_start_guideline_fraction" type="dimen">0</item>
+    <item name="login_screen_end_guideline_fraction" type="dimen">0</item>
 </resources>
