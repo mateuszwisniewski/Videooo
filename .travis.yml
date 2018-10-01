@@ -34,3 +34,6 @@ script:
 after_success:
   - bash <(curl -s https://codecov.io/bash) -F app -f app/build/reports/jacoco/report.xml
   - bash <(curl -s https://codecov.io/bash) -F core -f core/build/reports/jacoco/report.xml
+
+notifications:
+  email: false
