@@ -1,11 +1,13 @@
 package com.wisnia.videooo.data.account
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
-data class AccountDetails(@SerializedName("avatar") val avatar: Avatar,
-                          @SerializedName("id") val id: Int,
-                          @SerializedName("iso_639_1") val iso6391: String,
-                          @SerializedName("iso_3166_1") val iso31661: String,
-                          @SerializedName("name") val name: String,
-                          @SerializedName("include_adult") val includeAdult: Boolean,
-                          @SerializedName("username") val username: String)
+data class AccountDetails(
+    @Json(name = "avatar") val avatar: Avatar,
+    @Json(name = "id") val id: Int,
+    @Json(name = "iso_639_1") val iso6391: String,
+    @Json(name = "iso_3166_1") val iso31661: String,
+    @Json(name = "name") val name: String,
+    @Json(name = "include_adult") val includeAdult: Boolean,
+    @Json(name = "username") val username: String
+)

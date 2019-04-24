@@ -1,9 +1,9 @@
 package com.wisnia.videooo.data.authentication
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 import java.io.Serializable
 
-data class Token(@SerializedName("success") val success: Boolean,
-                 @SerializedName("expires_at") val expirationDate: String,
-                 @SerializedName("request_token") val token: String,
+data class Token(@Json(name = "success") val success: Boolean,
+                 @Json(name = "expires_at") val expirationDate: String,
+                 @Json(name = "request_token") val token: String,
                  var authenticationPage: String?) : Serializable

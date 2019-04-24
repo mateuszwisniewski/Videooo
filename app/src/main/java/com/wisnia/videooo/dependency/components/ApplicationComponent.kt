@@ -9,11 +9,12 @@ import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(
-        ApplicationModule::class,
-        AndroidSupportInjectionModule::class,
-        AndroidBindingModule::class,
-        HttpModule::class))
+@Component(
+    modules = [
+        ApplicationModule::class, AndroidSupportInjectionModule::class,
+        AndroidBindingModule::class, HttpModule::class
+    ]
+)
 interface ApplicationComponent {
 
     fun inject(application: VideoooApplication)

@@ -1,7 +1,7 @@
 package com.wisnia.videooo.data.authentication
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
-data class GuestSession(@SerializedName("success") val success: Boolean,
-                        @SerializedName("guest_session_id") val guestSessionId: String,
-                        @SerializedName("expires_at") val expiresAt: String)
+data class GuestSession(@Json(name = "success") val success: Boolean,
+                        @Json(name = "guest_session_id") val guestSessionId: String,
+                        @Json(name = "expires_at") val expiresAt: String)

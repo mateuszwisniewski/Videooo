@@ -2,22 +2,16 @@ apply plugin: 'kotlin'
 apply from: '../quality/jacoco.gradle'
 apply from: '../quality/ktlint.gradle'
 
-def lib = rootProject.ext.library
-def tests = rootProject.ext.testing
-
 dependencies {
 
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$lib.kotlin"
-
-    // RxJava
-    implementation "io.reactivex.rxjava2:rxjava:$lib.rxjava"
-
-    implementation "com.google.code.gson:gson:$lib.gson"
-    implementation "javax.inject:javax.inject:$lib.inject"
+    api library.moshi
+    api library.rxjava
+    api library.rxandroid
+    implementation library.kotlin
+    implementation library.coroutines
+    implementation library.coroutinesAndroid
+    implementation library.inject
 
     // Tests
-    testImplementation "junit:junit:$tests.junit"
-    testImplementation "org.mockito:mockito-core:$tests.mockito"
-    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$lib.kotlin"
+    testImplementation tests.junit
 }

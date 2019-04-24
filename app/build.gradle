@@ -6,21 +6,17 @@ apply from: '../quality/jacoco.gradle'
 apply from: '../quality/ktlint.gradle'
 
 def config = rootProject.ext.configuration
-def lib = rootProject.ext.library
-def tests = rootProject.ext.testing
-def signing = rootProject.ext.signing
 
 android {
-    compileSdkVersion config.compile_sdk_version
-    buildToolsVersion '28.0.3'
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
 
     defaultConfig {
-        applicationId config.application_id
-        minSdkVersion config.min_sdk_version
-        targetSdkVersion config.target_sdk_version
-        versionCode config.version_code
-        versionName config.version_name
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        applicationId 'com.wisnia.videooo'
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName '0.0.1'
         buildConfigField 'String', 'tmdb_api_key', config.tmdb_api_key
     }
 
@@ -51,47 +47,38 @@ android {
         }
     }
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
-    }
-
     dataBinding {
         enabled = true
     }
 }
 
 dependencies {
+
     implementation project(':core')
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$lib.kotlin"
+    implementation library.kotlin
+    implementation library.coreKtx
 
     // Android Architecture
-    implementation "android.arch.lifecycle:extensions:$lib.android_architecture"
+    implementation library.lifecycleExtensions
 
     // Android Support
-    implementation "com.android.support:appcompat-v7:$lib.android_support"
-    implementation "com.android.support:design:$lib.android_support"
-    implementation "com.android.support.constraint:constraint-layout:$lib.constraint_layout"
+    implementation library.appcompat
+    implementation library.constraintLayout
+    implementation library.material
 
     // Dagger
-    implementation "com.google.dagger:dagger-android:$lib.dagger"
-    implementation "com.google.dagger:dagger-android-support:$lib.dagger"
-    kapt "com.google.dagger:dagger-android-processor:$lib.dagger"
-    kapt "com.google.dagger:dagger-compiler:$lib.dagger"
+    implementation library.dagger
+    implementation library.daggerSupport
+    kapt library.daggerProcessor
+    kapt library.daggerCompiler
 
     // Retrofit
-    implementation "com.squareup.okhttp3:logging-interceptor:$lib.okhttp"
-    implementation "com.squareup.retrofit2:retrofit:$lib.retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$lib.retrofit"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$lib.retrofit"
-
-    // Rx
-    implementation "io.reactivex.rxjava2:rxandroid:$lib.rxandroid"
-    implementation "io.reactivex.rxjava2:rxjava:$lib.rxjava"
+    implementation library.retrofit
+    implementation library.retrofitAdapter
+    implementation library.retrofitConverter
 
     // Tests
-    testImplementation "junit:junit:$tests.junit"
-    testImplementation "org.mockito:mockito-core:$tests.mockito"
+    testImplementation tests.junit
 }

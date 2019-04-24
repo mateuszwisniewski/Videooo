@@ -1,5 +1,5 @@
 package com.wisnia.videooo.data.account
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
-data class Gravatar(@SerializedName("hash") val hash: String)
+data class Gravatar(@Json(name = "hash") val hash: String)

@@ -1,6 +1,6 @@
 package com.wisnia.videooo.data.authentication
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
-data class Session(@SerializedName("success") val success: Boolean,
-                   @SerializedName("session_id") val sessionId: String)
+data class Session(@Json(name = "success") val success: Boolean,
+                   @Json(name = "session_id") val sessionId: String)
