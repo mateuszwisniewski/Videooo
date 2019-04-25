@@ -2,6 +2,7 @@ package com.wisnia.videooo.application.di
 
 import android.app.Application
 import com.wisnia.videooo.application.VideoooApplication
+import com.wisnia.videooo.splashscreen.di.SplashScreenBinder
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -12,7 +13,8 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidSupportInjectionModule::class,
-        ApplicationModule::class
+        ApplicationModule::class,
+        SplashScreenBinder::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<VideoooApplication> {
