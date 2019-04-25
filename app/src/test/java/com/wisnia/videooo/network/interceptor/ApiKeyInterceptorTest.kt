@@ -3,6 +3,8 @@ package com.wisnia.videooo.network.interceptor
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
+import com.wisnia.data.network.interceptor.ApiKeyInterceptor
+import com.wisnia.data.network.interceptor.ApiKeyNotFoundException
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
 import okhttp3.Protocol

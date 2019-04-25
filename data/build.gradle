@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply from: '../quality/ktlint.gradle'
 
+def config = rootProject.ext.configuration
+
 android {
     compileSdkVersion androidCompileSdkVersion
 
@@ -10,6 +12,10 @@ android {
         targetSdkVersion androidTargetSdkVersion
         versionCode 1
         versionName "1.0"
+
+        buildConfigField 'String', 'api_url', "\"https://api.themoviedb.org/3/\""
+        buildConfigField 'String', 'tmdb_api_key', config.tmdb_api_key
+
     }
 
     buildTypes {
@@ -31,6 +37,7 @@ dependencies {
     implementation dataLibrary.coroutines
     implementation dataLibrary.coroutinesAndroid
     implementation dataLibrary.inject
+    implementation dataLibrary.rxjava
 
     testImplementation dataTests.junit
     testImplementation dataTests.kluent

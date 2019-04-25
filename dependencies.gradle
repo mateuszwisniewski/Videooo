@@ -18,7 +18,7 @@ ext {
     moshiVersion = '1.8.0'
     navigationComponentVersion = '2.1.0-alpha02'
     retrofitVersion = '2.5.0'
-    retrofitAdapterVersion = '0.9.2'
+    retrofitAdapterVersion = '2.5.0'
     retrofitConverterVersion = '2.5.0'
     rxandroidVersion = '2.0.1'
     rxjavaVersion = '2.1.0'
@@ -47,7 +47,7 @@ ext {
             navigationFragment : "androidx.navigation:navigation-fragment:$navigationComponentVersion",
             navigationUi       : "androidx.navigation:navigation-ui:$navigationComponentVersion",
             retrofit           : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            retrofitAdapter    : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitAdapterVersion",
+            retrofitAdapter    : "com.squareup.retrofit2:adapter-rxjava2:$retrofitAdapterVersion",
             retrofitConverter  : "com.squareup.retrofit2:converter-moshi:$retrofitConverterVersion",
             rxandroid          : "io.reactivex.rxjava2:rxandroid:$rxandroidVersion",
             rxjava             : "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
@@ -63,7 +63,8 @@ ext {
             coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
             inject    : "javax.inject:javax.inject:$injectVersion",
             kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
-            moshi     : "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+            moshi     : "com.squareup.moshi:moshi-kotlin:$moshiVersion",
+            rxjava    : "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
     ]
 
     domainTests = [
@@ -77,9 +78,10 @@ ext {
             inject           : "javax.inject:javax.inject:$injectVersion",
             kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
             retrofit         : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            retrofitAdapter  : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitAdapterVersion",
+            retrofitAdapter  : "com.squareup.retrofit2:adapter-rxjava2:$retrofitAdapterVersion",
             retrofitConverter: "com.squareup.retrofit2:converter-moshi:$retrofitConverterVersion",
-            moshi            : "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+            moshi            : "com.squareup.moshi:moshi-kotlin:$moshiVersion",
+            rxjava           : "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
     ]
 
     dataTests = [

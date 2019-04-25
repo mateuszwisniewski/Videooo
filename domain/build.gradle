@@ -7,4 +7,5 @@ dependencies {
     implementation domainLibrary.inject
     implementation domainLibrary.kotlin
     implementation domainLibrary.moshi
+    implementation domainLibrary.rxjava
 }

@@ -2,6 +2,7 @@ package com.wisnia.videooo.repository.token
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
+import com.wisnia.data.authentication.repository.token.AuthenticationHeaderInterceptor
 import com.wisnia.domain.authentication.model.Token
 import okhttp3.Headers
 import org.junit.Test
@@ -11,7 +12,8 @@ private const val AUTHENTICATION_CALLBACK_VALUE = "example_authentication-callba
 
 class AuthenticationHeaderExtractorTest {
 
-    private val tested = AuthenticationHeaderInterceptor()
+    private val tested =
+        AuthenticationHeaderInterceptor()
 
     private val tokenResponse = mock<Response<Token>>()
 

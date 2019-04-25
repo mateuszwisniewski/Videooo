@@ -2,11 +2,11 @@ package com.wisnia.domain.authentication.repository
 
 import com.wisnia.domain.authentication.model.GuestSession
 import com.wisnia.domain.authentication.model.Session
-import kotlinx.coroutines.Deferred
+import io.reactivex.Single
 
 interface SessionRepository {
 
-    suspend fun session(requestToken: String): Session
+    fun session(requestToken: String): Single<Session>
 
-    fun guestSession(): Deferred<GuestSession>
+    val guestSession: Single<GuestSession>
 }

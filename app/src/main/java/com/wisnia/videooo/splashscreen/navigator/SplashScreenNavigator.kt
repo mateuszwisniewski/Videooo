@@ -3,7 +3,7 @@ package com.wisnia.videooo.splashscreen.navigator
 import android.content.Intent
 import androidx.lifecycle.Observer
 import com.wisnia.videooo.common.navigator.Navigator
-import com.wisnia.videooo.login.LoginActivity
+import com.wisnia.videooo.login.view.LoginActivity
 import com.wisnia.videooo.splashscreen.navigator.SplashScreenEvent.NavigateToLoginScreen
 import com.wisnia.videooo.splashscreen.view.SplashScreenActivity
 

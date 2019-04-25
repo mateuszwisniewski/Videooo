@@ -1,8 +1,9 @@
 package com.wisnia.domain.authentication.repository
 
 import com.wisnia.domain.authentication.model.Token
+import io.reactivex.Single
 
 interface TokenRepository {
 
-    suspend fun token(): Token
+    val token: Single<Token>
 }

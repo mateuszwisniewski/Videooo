@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.wisnia.domain.authentication.model.Token
 import com.wisnia.videooo.R
 import com.wisnia.videooo.authentication.permission.PermissionState
-import com.wisnia.videooo.login.TOKEN_KEY
-import kotlinx.android.synthetic.main.activty_auth_permission.*
+import com.wisnia.videooo.login.view.TOKEN_KEY
+import kotlinx.android.synthetic.main.activty_auth_permission.authPermissionWebView
 
 class AuthenticationActivity : AppCompatActivity() {
 

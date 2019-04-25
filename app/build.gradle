@@ -5,8 +5,6 @@ apply plugin: 'kotlin-kapt'
 apply from: '../quality/jacoco.gradle'
 apply from: '../quality/ktlint.gradle'
 
-def config = rootProject.ext.configuration
-
 android {
     compileSdkVersion androidCompileSdkVersion
     buildToolsVersion androidBuildToolsVersion
@@ -17,7 +15,6 @@ android {
         targetSdkVersion androidTargetSdkVersion
         versionCode 1
         versionName '0.0.1'
-        buildConfigField 'String', 'tmdb_api_key', config.tmdb_api_key
     }
 
     signingConfigs {

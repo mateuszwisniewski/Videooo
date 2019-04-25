@@ -1,4 +1,4 @@
-package com.wisnia.videooo.dependency.factory
+package com.wisnia.videooo.common.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

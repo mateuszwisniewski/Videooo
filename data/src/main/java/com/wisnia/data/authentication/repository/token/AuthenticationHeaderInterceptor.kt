@@ -1,4 +1,4 @@
-package com.wisnia.videooo.repository.token
+package com.wisnia.data.authentication.repository.token
 
 import com.wisnia.domain.authentication.model.Token
 import io.reactivex.Single
