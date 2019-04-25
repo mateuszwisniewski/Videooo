@@ -25,6 +25,7 @@ ext {
 
     junitVersion = '4.12'
     kluentVersion = '1.49'
+    mockitoKotlinVersion = '2.1.0'
 
     ktlintVersion = '0.31.0'
 
@@ -53,8 +54,9 @@ ext {
     ]
 
     appTests = [
-            junit : "junit:junit:$junitVersion",
-            kluent: "org.amshove.kluent:kluent-android:$kluentVersion"
+            junit        : "junit:junit:$junitVersion",
+            kluent       : "org.amshove.kluent:kluent-android:$kluentVersion",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
     ]
 
     domainLibrary = [

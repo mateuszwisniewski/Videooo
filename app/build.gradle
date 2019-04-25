@@ -81,4 +81,6 @@ dependencies {
 
     // Tests
     testImplementation appTests.junit
+    testImplementation appTests.kluent
+    testImplementation appTests.mockitoKotlin
 }
