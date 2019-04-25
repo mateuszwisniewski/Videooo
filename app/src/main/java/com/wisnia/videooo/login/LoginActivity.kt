@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.wisnia.domain.authentication.model.Token
 import com.wisnia.videooo.R
 import com.wisnia.videooo.authentication.AuthenticationActivity
-import com.wisnia.videooo.data.authentication.Token
 import com.wisnia.videooo.databinding.ActivityLoginBinding
 import com.wisnia.videooo.login.presentation.LoginType
 import com.wisnia.videooo.login.presentation.LoginViewModel

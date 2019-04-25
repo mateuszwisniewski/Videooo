@@ -1,16 +1,18 @@
 package com.wisnia.videooo.repository.session
 
-import com.wisnia.videooo.data.authentication.GuestSession
-import com.wisnia.videooo.data.authentication.Session
-import com.wisnia.videooo.repository.authentication.SessionRepository
-import io.reactivex.Single
+import com.wisnia.domain.authentication.model.GuestSession
+import com.wisnia.domain.authentication.model.Session
+import com.wisnia.domain.authentication.repository.SessionRepository
+import kotlinx.coroutines.Deferred
 import javax.inject.Inject
 
-class SessionDataRepository @Inject constructor(private val httpSessionRepository: HttpSessionRepository) : SessionRepository {
+class SessionDataRepository @Inject constructor(private val httpSessionRepository: HttpSessionRepository) :
+    SessionRepository {
 
-    override fun session(requestToken: String): Single<Session> =
-            httpSessionRepository.session(requestToken)
+    override suspend fun session(requestToken: String): Session =
+        httpSessionRepository.session(requestToken)
 
-    override val guestSession: Single<GuestSession>
-        get() = httpSessionRepository.guestSession
+    override fun guestSession(): Deferred<GuestSession> {
+        TODO("not implemented")
+    }
 }

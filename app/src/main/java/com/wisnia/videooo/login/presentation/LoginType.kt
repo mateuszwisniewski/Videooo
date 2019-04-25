@@ -1,6 +1,6 @@
 package com.wisnia.videooo.login.presentation
 
-import com.wisnia.videooo.data.authentication.Token
+import com.wisnia.domain.authentication.model.Token
 
 sealed class LoginType {
     object SignIn : LoginType()

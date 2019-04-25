@@ -1,6 +1,6 @@
 package com.wisnia.videooo.repository.token
 
-import com.wisnia.videooo.data.authentication.Token
+import com.wisnia.domain.authentication.model.Token
 import io.reactivex.Single
 import retrofit2.Response
 import javax.inject.Inject

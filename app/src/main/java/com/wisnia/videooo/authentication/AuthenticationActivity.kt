@@ -3,9 +3,9 @@ package com.wisnia.videooo.authentication
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
+import com.wisnia.domain.authentication.model.Token
 import com.wisnia.videooo.R
 import com.wisnia.videooo.authentication.permission.PermissionState
-import com.wisnia.videooo.data.authentication.Token
 import com.wisnia.videooo.login.TOKEN_KEY
 import com.wisnia.videooo.mvp.EmptyPresenter
 import com.wisnia.videooo.mvp.PresentationActivity

@@ -1,17 +1,16 @@
 package com.wisnia.videooo.repository.token
 
-import com.wisnia.videooo.data.authentication.Token
-
+import com.wisnia.data.authentication.api.TokenApi
+import com.wisnia.domain.authentication.model.Token
 import com.wisnia.videooo.network.HttpServiceProvider
-import com.wisnia.videooo.network.rest.authentication.RestTokenRepository
-import io.reactivex.Single
 import javax.inject.Inject
 
-class HttpTokenRepository @Inject constructor(serviceProvider: HttpServiceProvider,
-                                              private val extractor: AuthenticationHeaderInterceptor) {
-    private val tokenRepository = serviceProvider.getService(RestTokenRepository::class.java)
+class HttpTokenRepository @Inject constructor(
+    serviceProvider: HttpServiceProvider,
+    private val extractor: AuthenticationHeaderInterceptor
+) {
 
-    val token: Single<Token>
-        get() = tokenRepository.token
-                .flatMap { extractor.intercept(it) }
+    private val tokenRepository = serviceProvider.getService(TokenApi::class.java)
+
+    suspend fun token(): Token = tokenRepository.token.await().body()!!
 }

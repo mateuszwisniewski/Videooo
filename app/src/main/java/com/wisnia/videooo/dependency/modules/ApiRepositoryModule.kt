@@ -1,9 +1,8 @@
 package com.wisnia.videooo.dependency.modules
 
-import com.wisnia.videooo.repository.authentication.LoginRepository
-import com.wisnia.videooo.repository.authentication.SessionRepository
-import com.wisnia.videooo.repository.authentication.TokenRepository
-import com.wisnia.videooo.repository.login.HttpLoginRepository
+import com.wisnia.domain.authentication.repository.LoginRepository
+import com.wisnia.domain.authentication.repository.SessionRepository
+import com.wisnia.domain.authentication.repository.TokenRepository
 import com.wisnia.videooo.repository.login.LoginDataRepository
 import com.wisnia.videooo.repository.session.HttpSessionRepository
 import com.wisnia.videooo.repository.session.SessionDataRepository
@@ -23,12 +22,7 @@ class ApiRepositoryModule {
 
     @Provides
     @Singleton
-    fun provideLoginDataRepository(
-        httpLoginRepository: HttpLoginRepository,
-        httpTokenRepository: HttpTokenRepository,
-        httpSessionRepository: HttpSessionRepository
-    ): LoginRepository =
-        LoginDataRepository(httpLoginRepository, httpTokenRepository, httpSessionRepository)
+    fun provideLoginDataRepository(): LoginRepository = LoginDataRepository()
 
     @Provides
     @Singleton

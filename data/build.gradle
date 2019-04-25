@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+
+    implementation dataLibrary.kotlin
+    implementation dataLibrary.retrofit
+    implementation dataLibrary.retrofitAdapter
+    implementation dataLibrary.retrofitConverter
+    implementation dataLibrary.moshi
+    implementation dataLibrary.coroutines
+    implementation dataLibrary.coroutinesAndroid
+    implementation dataLibrary.inject
+
+    testImplementation dataTests.junit
+    testImplementation dataTests.kluent
+}

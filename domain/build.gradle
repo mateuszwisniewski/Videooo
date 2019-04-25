@@ -1,0 +1,9 @@
+apply plugin: 'kotlin'
+
+dependencies {
+
+    implementation domainLibrary.coroutines
+    implementation domainLibrary.inject
+    implementation domainLibrary.kotlin
+    implementation domainLibrary.moshi
+}

@@ -53,32 +53,32 @@ android {
 }
 
 dependencies {
+    implementation project(':data')
+    implementation project(':domain')
 
-    implementation project(':core')
+    implementation appLibrary.kotlin
+    implementation appLibrary.coreKtx
 
-    // Kotlin
-    implementation library.kotlin
-    implementation library.coreKtx
+    implementation appLibrary.lifecycleExtensions
 
-    // Android Architecture
-    implementation library.lifecycleExtensions
+    implementation appLibrary.appcompat
+    implementation appLibrary.constraintLayout
+    implementation appLibrary.material
 
-    // Android Support
-    implementation library.appcompat
-    implementation library.constraintLayout
-    implementation library.material
+    implementation appLibrary.dagger
+    implementation appLibrary.daggerSupport
+    kapt appLibrary.daggerProcessor
+    kapt appLibrary.daggerCompiler
 
-    // Dagger
-    implementation library.dagger
-    implementation library.daggerSupport
-    kapt library.daggerProcessor
-    kapt library.daggerCompiler
+    implementation appLibrary.retrofit
+    implementation appLibrary.retrofitAdapter
+    implementation appLibrary.retrofitConverter
 
-    // Retrofit
-    implementation library.retrofit
-    implementation library.retrofitAdapter
-    implementation library.retrofitConverter
+    implementation appLibrary.rxandroid
+    implementation appLibrary.rxjava
+
+    implementation appLibrary.moshi
 
     // Tests
-    testImplementation tests.junit
+    testImplementation appTests.junit
 }

@@ -26,7 +26,7 @@ ext {
     junitVersion = '4.12'
     kluentVersion = '1.49'
 
-    library = [
+    appLibrary = [
             appcompat          : "androidx.appcompat:appcompat:$appCompatVersion",
             constraintLayout   : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
             coreKtx            : "androidx.core:core-ktx:$coreKtxVersion",
@@ -50,7 +50,35 @@ ext {
             rxjava             : "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
     ]
 
-    tests = [
+    appTests = [
+            junit : "junit:junit:$junitVersion",
+            kluent: "org.amshove.kluent:kluent-android:$kluentVersion"
+    ]
+
+    domainLibrary = [
+            coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
+            inject    : "javax.inject:javax.inject:$injectVersion",
+            kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            moshi     : "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+    ]
+
+    domainTests = [
+            junit : "junit:junit:$junitVersion",
+            kluent: "org.amshove.kluent:kluent-android:$kluentVersion"
+    ]
+
+    dataLibrary = [
+            coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
+            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
+            inject           : "javax.inject:javax.inject:$injectVersion",
+            kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            retrofit         : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitAdapter  : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitAdapterVersion",
+            retrofitConverter: "com.squareup.retrofit2:converter-moshi:$retrofitConverterVersion",
+            moshi            : "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+    ]
+
+    dataTests = [
             junit : "junit:junit:$junitVersion",
             kluent: "org.amshove.kluent:kluent-android:$kluentVersion"
     ]
