@@ -3,19 +3,14 @@ package com.wisnia.videooo.authentication
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.wisnia.domain.authentication.model.Token
 import com.wisnia.videooo.R
 import com.wisnia.videooo.authentication.permission.PermissionState
 import com.wisnia.videooo.login.TOKEN_KEY
-import com.wisnia.videooo.mvp.EmptyPresenter
-import com.wisnia.videooo.mvp.PresentationActivity
-import com.wisnia.videooo.mvp.Presenter
-import com.wisnia.videooo.mvp.View
 import kotlinx.android.synthetic.main.activty_auth_permission.*
 
-class AuthenticationActivity : PresentationActivity<View>() {
-
-    override fun getPresenter(): Presenter<View> = EmptyPresenter()
+class AuthenticationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
