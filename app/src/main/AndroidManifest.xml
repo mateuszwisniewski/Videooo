@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Videooo"
+        android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <activity
@@ -25,7 +26,7 @@
         </activity>
 
         <activity android:name=".login.view.LoginActivity" />
-        <activity android:name=".authentication.AuthenticationActivity" />
+        <activity android:name=".authentication.view.AuthenticationActivity" />
 
     </application>
 </manifest>

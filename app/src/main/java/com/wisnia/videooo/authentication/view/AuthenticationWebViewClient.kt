@@ -1,4 +1,4 @@
-package com.wisnia.videooo.authentication
+package com.wisnia.videooo.authentication.view
 
 import android.annotation.TargetApi
 import android.net.Uri
@@ -7,20 +7,16 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.wisnia.videooo.authentication.permission.PermissionInterceptor
-import com.wisnia.videooo.authentication.permission.PermissionState
-import com.wisnia.videooo.authentication.permission.PermissionUrl
-import io.reactivex.BackpressureStrategy
-import io.reactivex.Flowable
+import com.wisnia.videooo.authentication.model.PermissionInterceptor
+import com.wisnia.videooo.authentication.model.PermissionState
+import com.wisnia.videooo.authentication.model.PermissionUrl
 import io.reactivex.subjects.PublishSubject
 
 class AuthenticationWebViewClient(token: String) : WebViewClient() {
 
     private val interceptor: PermissionInterceptor = PermissionInterceptor(token) // todo: use DI here.
 
-    private val permissionSubject: PublishSubject<PermissionState> = PublishSubject.create()
-    val permissionEvent: Flowable<PermissionState>
-        get() = permissionSubject.toFlowable(BackpressureStrategy.LATEST).distinctUntilChanged()
+    val permissionSubject: PublishSubject<PermissionState> = PublishSubject.create()
 
     @Suppress("OverridingDeprecatedMember", "DEPRECATION")
     override fun shouldInterceptRequest(view: WebView, url: String): WebResourceResponse? {

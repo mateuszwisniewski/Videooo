@@ -1,4 +1,4 @@
-package com.wisnia.videooo.login.presentation
+package com.wisnia.videooo.login.model
 
 import com.wisnia.domain.authentication.model.Token
 

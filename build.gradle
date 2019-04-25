@@ -17,7 +17,6 @@ ext {
 buildscript {
     apply from: 'dependencies.gradle'
     repositories {
-        mavenCentral()
         google()
         jcenter()
     }

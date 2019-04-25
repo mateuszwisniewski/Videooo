@@ -20,8 +20,8 @@ ext {
     retrofitVersion = '2.5.0'
     retrofitAdapterVersion = '2.5.0'
     retrofitConverterVersion = '2.5.0'
-    rxandroidVersion = '2.0.1'
-    rxjavaVersion = '2.1.0'
+    rxandroidVersion = '2.1.0'
+    rxkotlinVersion = '2.2.0'
 
     junitVersion = '4.12'
     kluentVersion = '1.49'
@@ -40,7 +40,7 @@ ext {
             daggerProcessor    : "com.google.dagger:dagger-android-processor:$daggerVersion",
             daggerSupport      : "com.google.dagger:dagger-android-support:$daggerVersion",
             inject             : "javax.inject:javax.inject:$injectVersion",
-            kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion",
             material           : "com.google.android.material:material:$materialVersion",
             moshi              : "com.squareup.moshi:moshi-kotlin:$moshiVersion",
@@ -50,7 +50,7 @@ ext {
             retrofitAdapter    : "com.squareup.retrofit2:adapter-rxjava2:$retrofitAdapterVersion",
             retrofitConverter  : "com.squareup.retrofit2:converter-moshi:$retrofitConverterVersion",
             rxandroid          : "io.reactivex.rxjava2:rxandroid:$rxandroidVersion",
-            rxjava             : "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+            rxkotlin           : "io.reactivex.rxjava2:rxkotlin:$rxkotlinVersion"
     ]
 
     appTests = [
@@ -60,11 +60,10 @@ ext {
     ]
 
     domainLibrary = [
-            coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
-            inject    : "javax.inject:javax.inject:$injectVersion",
-            kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
-            moshi     : "com.squareup.moshi:moshi-kotlin:$moshiVersion",
-            rxjava    : "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+            inject   : "javax.inject:javax.inject:$injectVersion",
+            kotlin   : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            moshi    : "com.squareup.moshi:moshi-kotlin:$moshiVersion",
+            rxandroid: "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
     ]
 
     domainTests = [
@@ -76,12 +75,12 @@ ext {
             coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
             coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
             inject           : "javax.inject:javax.inject:$injectVersion",
-            kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             retrofit         : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retrofitAdapter  : "com.squareup.retrofit2:adapter-rxjava2:$retrofitAdapterVersion",
             retrofitConverter: "com.squareup.retrofit2:converter-moshi:$retrofitConverterVersion",
             moshi            : "com.squareup.moshi:moshi-kotlin:$moshiVersion",
-            rxjava           : "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+            rxkotlin         : "io.reactivex.rxjava2:rxkotlin:$rxkotlinVersion",
     ]
 
     dataTests = [

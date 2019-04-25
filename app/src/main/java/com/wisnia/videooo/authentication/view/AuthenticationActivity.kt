@@ -1,4 +1,4 @@
-package com.wisnia.videooo.authentication
+package com.wisnia.videooo.authentication.view
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -6,20 +6,25 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.wisnia.domain.authentication.model.Token
 import com.wisnia.videooo.R
-import com.wisnia.videooo.authentication.permission.PermissionState
+import com.wisnia.videooo.authentication.model.PermissionState
 import com.wisnia.videooo.login.view.TOKEN_KEY
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.plusAssign
 import kotlinx.android.synthetic.main.activty_auth_permission.authPermissionWebView
 
 class AuthenticationActivity : AppCompatActivity() {
+
+    private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activty_auth_permission)
 
         val token = intent.getSerializableExtra(TOKEN_KEY) as Token
-        val webViewClient = AuthenticationWebViewClient(token.token)
-        setupWebView(webViewClient, token)
-        subscribeAccessPermissionEvents(webViewClient)
+        AuthenticationWebViewClient(token.token).let { client ->
+            setupWebView(client, token)
+            subscribeAccessPermissionEvents(client)
+        }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -32,12 +37,17 @@ class AuthenticationActivity : AppCompatActivity() {
     }
 
     private fun subscribeAccessPermissionEvents(webViewClient: AuthenticationWebViewClient) {
-        webViewClient.permissionEvent.subscribe {
-            when (it) {
+        disposables += webViewClient.permissionSubject.subscribe { state ->
+            when (state) {
                 PermissionState.ALLOW -> setResult(Activity.RESULT_OK)
                 PermissionState.DENY -> setResult(Activity.RESULT_CANCELED)
                 PermissionState.NONE -> Any()
             }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        disposables.clear()
     }
 }

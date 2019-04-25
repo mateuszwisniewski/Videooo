@@ -1,4 +1,4 @@
-package com.wisnia.videooo.authentication.permission
+package com.wisnia.videooo.authentication.model
 
 data class PermissionUrl(
     val encodedPath: String?,

@@ -37,7 +37,7 @@ dependencies {
     implementation dataLibrary.coroutines
     implementation dataLibrary.coroutinesAndroid
     implementation dataLibrary.inject
-    implementation dataLibrary.rxjava
+    implementation dataLibrary.rxkotlin
 
     testImplementation dataTests.junit
     testImplementation dataTests.kluent

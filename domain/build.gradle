@@ -3,9 +3,8 @@ apply from: '../quality/ktlint.gradle'
 
 dependencies {
 
-    implementation domainLibrary.coroutines
     implementation domainLibrary.inject
     implementation domainLibrary.kotlin
     implementation domainLibrary.moshi
-    implementation domainLibrary.rxjava
+    implementation domainLibrary.rxandroid
 }

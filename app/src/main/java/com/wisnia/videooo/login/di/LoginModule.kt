@@ -24,8 +24,7 @@ class LoginModule {
 
     @Provides
     @Activity
-    fun provideLoginNavigator(activity: LoginActivity): LoginNavigator =
-        LoginNavigator(activity)
+    fun provideLoginNavigator(activity: LoginActivity): LoginNavigator = LoginNavigator(activity)
 
     @Provides
     @Activity

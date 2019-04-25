@@ -72,7 +72,7 @@ dependencies {
     implementation appLibrary.retrofitConverter
 
     implementation appLibrary.rxandroid
-    implementation appLibrary.rxjava
+    implementation appLibrary.rxkotlin
 
     implementation appLibrary.moshi
 
