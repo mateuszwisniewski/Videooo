@@ -26,6 +26,8 @@ ext {
     junitVersion = '4.12'
     kluentVersion = '1.49'
 
+    ktlintVersion = '0.31.0'
+
     appLibrary = [
             appcompat          : "androidx.appcompat:appcompat:$appCompatVersion",
             constraintLayout   : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
@@ -84,8 +86,8 @@ ext {
     ]
 
     quality = [
+            ktlint    : "com.github.shyiko:ktlint:$ktlintVersion",
             jacoco    : '0.7.9',
-            ktlint    : '0.11.1',
             configDir : "${project.rootDir}/quality/config",
             reportsDir: "${project.buildDir}/reports"
     ]

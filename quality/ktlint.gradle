@@ -1,11 +1,9 @@
-def quality = rootProject.ext.quality
-
 configurations {
     ktlint
 }
 
 dependencies {
-    ktlint "com.github.shyiko:ktlint:$quality.ktlint"
+    ktlint quality.ktlint
     // additional 3rd party ruleset(s) can be specified here
     // just add them to the classpath (ktlint 'groupId:artifactId:version') and
     // ktlint will pick them up

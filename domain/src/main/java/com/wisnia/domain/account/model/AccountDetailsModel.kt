@@ -5,4 +5,3 @@ data class AccountDetailsModel(
     val name: String,
     val username: String
 )
-
