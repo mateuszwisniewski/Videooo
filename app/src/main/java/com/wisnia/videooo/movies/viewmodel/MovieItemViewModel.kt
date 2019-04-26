@@ -1,3 +1,9 @@
 package com.wisnia.videooo.movies.viewmodel
 
-class MovieItemViewModel
+import com.wisnia.videooo.common.viewmodel.LifecycleViewModel
+
+class MovieItemViewModel : LifecycleViewModel() {
+
+    fun onMovieItemClick() {
+    }
+}

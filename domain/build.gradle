@@ -7,4 +7,9 @@ dependencies {
     implementation domainLibrary.kotlin
     implementation domainLibrary.moshi
     implementation domainLibrary.rxandroid
+
+    testImplementation domainTests.junit
+    testImplementation domainTests.kluent
+    testImplementation domainTests.mockitoKotlin
+
 }

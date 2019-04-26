@@ -9,13 +9,14 @@
             type="com.wisnia.domain.movie.model.ResultModel" />
 
         <variable
-            name="itemViewModel"
+            name="viewModel"
             type="com.wisnia.videooo.movies.viewmodel.MovieItemViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onMovieItemClick()}"
         app:cardCornerRadius="4dp"
         app:cardUseCompatPadding="true"
         app:contentPadding="8dp">

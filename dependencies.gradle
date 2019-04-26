@@ -64,8 +64,9 @@ ext {
     ]
 
     domainTests = [
-            junit : "junit:junit:$junitVersion",
-            kluent: "org.amshove.kluent:kluent-android:$kluentVersion"
+            junit        : "junit:junit:$junitVersion",
+            kluent       : "org.amshove.kluent:kluent-android:$kluentVersion",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
     ]
 
     dataLibrary = [

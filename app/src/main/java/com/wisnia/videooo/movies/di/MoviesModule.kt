@@ -5,6 +5,7 @@ import com.wisnia.data.movie.repository.MovieDataRepository
 import com.wisnia.domain.movie.repository.MovieRepository
 import com.wisnia.videooo.application.di.scope.Fragment
 import com.wisnia.videooo.movies.adapter.PopularMoviesAdapter
+import com.wisnia.videooo.movies.viewmodel.MovieItemViewModel
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -22,5 +23,10 @@ class MoviesModule {
 
     @Provides
     @Fragment
-    fun providePopularMoviesAdapter(): PopularMoviesAdapter = PopularMoviesAdapter()
+    fun providePopularMoviesAdapter(itemViewModel: MovieItemViewModel): PopularMoviesAdapter =
+        PopularMoviesAdapter(itemViewModel)
+
+    @Provides
+    @Fragment
+    fun provideMovieItemViewModel(): MovieItemViewModel = MovieItemViewModel()
 }
