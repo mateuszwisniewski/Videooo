@@ -8,6 +8,6 @@ import io.reactivex.Single
 
 class MovieDataRepository(private val movieApi: MovieApi) : MovieRepository {
 
-    override fun popularMovies(): Single<MovieModel> =
-        movieApi.popularMovies().map { movie -> movie.toDomain() }
+    override fun popularMovies(imagePath: String): Single<MovieModel> =
+        movieApi.popularMovies().map { movie -> movie.toDomain(imagePath) }
 }

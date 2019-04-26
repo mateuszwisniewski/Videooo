@@ -15,6 +15,7 @@ android {
         targetSdkVersion androidTargetSdkVersion
         versionCode 1
         versionName '0.0.1'
+        multiDexEnabled true
     }
 
     signingConfigs {
@@ -66,6 +67,9 @@ dependencies {
     implementation appLibrary.daggerSupport
     kapt appLibrary.daggerProcessor
     kapt appLibrary.daggerCompiler
+
+    implementation appLibrary.glide
+    kapt appLibrary.glideCompiler
 
     implementation appLibrary.retrofit
     implementation appLibrary.retrofitAdapter

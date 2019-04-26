@@ -4,6 +4,8 @@
 
     <data>
 
+        <import type="com.wisnia.videooo.common.binding.Transformation" />
+
         <variable
             name="item"
             type="com.wisnia.domain.movie.model.ResultModel" />
@@ -15,33 +17,40 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="192dp"
         android:onClick="@{() -> viewModel.onMovieItemClick()}"
         app:cardCornerRadius="4dp"
-        app:cardUseCompatPadding="true"
-        app:contentPadding="8dp">
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/popularMoviePoster"
+                android:layout_width="128dp"
+                android:layout_height="0dp"
+                app:imageSrc="@{item.posterPath}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:placeholder="@{@drawable/ic_key}"
+                app:transformation="@{Transformation.CenterCrop}" />
+
             <TextView
                 android:id="@+id/popularMovieTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:text="@{item.title}"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/popularMoviePoster"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/popularMovieDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{item.overview}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/popularMovieTitle" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

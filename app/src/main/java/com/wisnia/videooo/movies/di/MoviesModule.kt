@@ -1,7 +1,10 @@
 package com.wisnia.videooo.movies.di
 
+import com.wisnia.data.configuration.api.ConfigurationApi
+import com.wisnia.data.configuration.repository.ConfigurationDataRepository
 import com.wisnia.data.movie.api.MovieApi
 import com.wisnia.data.movie.repository.MovieDataRepository
+import com.wisnia.domain.configuration.repository.ConfigurationRepository
 import com.wisnia.domain.movie.repository.MovieRepository
 import com.wisnia.videooo.application.di.scope.Fragment
 import com.wisnia.videooo.movies.adapter.PopularMoviesAdapter
@@ -29,4 +32,14 @@ class MoviesModule {
     @Provides
     @Fragment
     fun provideMovieItemViewModel(): MovieItemViewModel = MovieItemViewModel()
+
+    @Provides
+    @Fragment
+    fun provideConfigurationApi(retrofit: Retrofit): ConfigurationApi =
+        retrofit.create(ConfigurationApi::class.java)
+
+    @Provides
+    @Fragment
+    fun provideConfigurationRepository(configurationApi: ConfigurationApi): ConfigurationRepository =
+        ConfigurationDataRepository(configurationApi)
 }

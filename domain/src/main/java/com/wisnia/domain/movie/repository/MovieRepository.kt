@@ -5,5 +5,5 @@ import io.reactivex.Single
 
 interface MovieRepository {
 
-    fun popularMovies(): Single<MovieModel>
+    fun popularMovies(imagePath: String): Single<MovieModel>
 }

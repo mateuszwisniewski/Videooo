@@ -28,12 +28,14 @@ data class Result(
     @Json(name = "vote_average") var voteAverage: Double
 )
 
-fun Movie.toDomain(): MovieModel = MovieModel(page, results.toDomain(), totalResults, totalPages)
+fun Movie.toDomain(imagePath: String): MovieModel =
+    MovieModel(page, results.toDomain(imagePath), totalResults, totalPages)
 
-private fun List<Result>.toDomain(): List<ResultModel> = map { result -> result.toDomain() }
+private fun List<Result>.toDomain(imagePath: String): List<ResultModel> =
+    map { result -> result.toDomain(imagePath) }
 
-private fun Result.toDomain(): ResultModel = ResultModel(
-    posterPath,
+private fun Result.toDomain(imagePath: String): ResultModel = ResultModel(
+    imagePath.plus(posterPath),
     adult,
     overview,
     releaseDate,

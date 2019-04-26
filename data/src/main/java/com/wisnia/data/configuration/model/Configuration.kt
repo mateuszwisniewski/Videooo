@@ -1,6 +1,8 @@
 package com.wisnia.data.configuration.model
 
 import com.squareup.moshi.Json
+import com.wisnia.data.configuration.model.image.PosterSizes
+import com.wisnia.data.configuration.model.image.toDomain
 import com.wisnia.domain.configuration.model.ConfigurationModel
 import com.wisnia.domain.configuration.model.ImagesModel
 
@@ -14,19 +16,19 @@ data class Images(
     @Json(name = "secure_base_url") val secureBaseUrl: String,
     @Json(name = "backdrop_sizes") val backdropSizes: List<String>,
     @Json(name = "logo_sizes") val logoSizes: List<String>,
-    @Json(name = "poster_sizes") val posterSizes: List<String>,
+    @Json(name = "poster_sizes") val posterSizes: List<PosterSizes>,
     @Json(name = "profile_sizes") val profileSizes: List<String>,
     @Json(name = "still_sizes") val stillSizes: List<String>
 )
 
 fun Configuration.toDomain(): ConfigurationModel = ConfigurationModel(images.toDomain(), changeKeys)
 
-private fun Images.toDomain(): ImagesModel = ImagesModel(
+fun Images.toDomain(): ImagesModel = ImagesModel(
     baseUrl,
     secureBaseUrl,
     backdropSizes,
     logoSizes,
-    posterSizes,
+    posterSizes.toDomain(),
     profileSizes,
     stillSizes
 )
