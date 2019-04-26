@@ -5,11 +5,11 @@ import androidx.lifecycle.Observer
 import com.wisnia.domain.authentication.model.Token
 import com.wisnia.videooo.authentication.view.AuthenticationActivity
 import com.wisnia.videooo.common.navigator.Navigator
-import com.wisnia.videooo.login.navigation.LoginEvent.NavigateToSignIn
-import com.wisnia.videooo.login.navigation.LoginEvent.NavigateToSignInAsGuest
+import com.wisnia.videooo.login.navigation.LoginEvent.NavigateToMovies
 import com.wisnia.videooo.login.navigation.LoginEvent.NavigateToSignInWebsite
 import com.wisnia.videooo.login.view.LoginActivity
 import com.wisnia.videooo.login.view.TOKEN_KEY
+import com.wisnia.videooo.main.view.MainActivity
 
 const val WEB_AUTH_REQUEST_CODE = 101
 
@@ -17,9 +17,8 @@ class LoginNavigator(val activity: LoginActivity) : Navigator<LoginEvent>(activi
 
     override val navigationObserver: Observer<LoginEvent> = Observer {
         when (it) {
-            is NavigateToSignIn -> TODO("Not implemented")
             is NavigateToSignInWebsite -> showAuthenticationScreen(it.token)
-            is NavigateToSignInAsGuest -> TODO("Not implemented")
+            is NavigateToMovies -> navigateToMoviesScreen()
         }
     }
 
@@ -27,6 +26,11 @@ class LoginNavigator(val activity: LoginActivity) : Navigator<LoginEvent>(activi
         val intent = Intent(activity, AuthenticationActivity::class.java).apply {
             putExtra(TOKEN_KEY, token)
         }
+        activity.startActivityForResult(intent, WEB_AUTH_REQUEST_CODE)
+    }
+
+    private fun navigateToMoviesScreen() {
+        val intent = Intent(activity, MainActivity::class.java)
         activity.startActivityForResult(intent, WEB_AUTH_REQUEST_CODE)
     }
 }

@@ -6,8 +6,7 @@ import com.wisnia.domain.authentication.repository.LoginRepository
 import com.wisnia.domain.authentication.repository.TokenRepository
 import com.wisnia.videooo.common.scheduler.RxScheduler
 import com.wisnia.videooo.common.viewmodel.LifecycleViewModel
-import com.wisnia.videooo.login.navigation.LoginEvent.NavigateToSignIn
-import com.wisnia.videooo.login.navigation.LoginEvent.NavigateToSignInAsGuest
+import com.wisnia.videooo.login.navigation.LoginEvent.NavigateToMovies
 import com.wisnia.videooo.login.navigation.LoginEvent.NavigateToSignInWebsite
 import com.wisnia.videooo.login.navigation.LoginNavigator
 import io.reactivex.disposables.CompositeDisposable
@@ -37,7 +36,9 @@ class LoginViewModel @Inject constructor(
                 .subscribeOn(rxScheduler.io)
                 .observeOn(rxScheduler.mainThread)
                 .subscribeBy(
-                    onSuccess = { navigator.call(NavigateToSignIn) },
+                    onSuccess = {
+                        // TODO: not implemented yet
+                    },
                     onError = { it.printStackTrace() })
     }
 
@@ -63,14 +64,15 @@ class LoginViewModel @Inject constructor(
                 .subscribeBy(
                     onSuccess = {
                         navigator.subscribe() // TODO: improve navigator
-                        navigator.call(NavigateToSignInAsGuest)
+                        navigator.call(NavigateToMovies)
                     },
                     onError = { it.printStackTrace() }
                 ))
     }
 
     fun onPermissionGranted() {
-        Log.d("LoginActivity", "Authentication success: User permission allowed")
+        navigator.subscribe() // TODO: improve navigator
+        navigator.call(NavigateToMovies)
     }
 
     fun onPermissionDenied() {

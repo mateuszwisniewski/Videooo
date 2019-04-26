@@ -34,8 +34,6 @@ dependencies {
     implementation dataLibrary.retrofitAdapter
     implementation dataLibrary.retrofitConverter
     implementation dataLibrary.moshi
-    implementation dataLibrary.coroutines
-    implementation dataLibrary.coroutinesAndroid
     implementation dataLibrary.inject
     implementation dataLibrary.rxkotlin
 

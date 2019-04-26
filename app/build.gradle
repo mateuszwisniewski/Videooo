@@ -76,6 +76,9 @@ dependencies {
 
     implementation appLibrary.moshi
 
+    implementation appLibrary.navigationFragment
+    implementation appLibrary.navigationUi
+
     // Tests
     testImplementation appTests.junit
     testImplementation appTests.kluent

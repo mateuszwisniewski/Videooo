@@ -9,7 +9,6 @@ ext {
     appCompatVersion = '1.1.0-alpha04'
     constraintLayoutVersion = '1.1.3'
     coreKtxVersion = '1.1.0-alpha05'
-    coroutinesVersion = '1.1.1'
     daggerVersion = '2.22.1'
     injectVersion = '1'
     kotlinVersion = '1.3.21'
@@ -33,8 +32,6 @@ ext {
             appcompat          : "androidx.appcompat:appcompat:$appCompatVersion",
             constraintLayout   : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
             coreKtx            : "androidx.core:core-ktx:$coreKtxVersion",
-            coroutines         : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
-            coroutinesAndroid  : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
             dagger             : "com.google.dagger:dagger-android:$daggerVersion",
             daggerCompiler     : "com.google.dagger:dagger-compiler:$daggerVersion",
             daggerProcessor    : "com.google.dagger:dagger-android-processor:$daggerVersion",
@@ -72,8 +69,6 @@ ext {
     ]
 
     dataLibrary = [
-            coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
-            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
             inject           : "javax.inject:javax.inject:$injectVersion",
             kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             retrofit         : "com.squareup.retrofit2:retrofit:$retrofitVersion",
