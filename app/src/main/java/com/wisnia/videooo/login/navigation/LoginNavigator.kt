@@ -2,7 +2,7 @@ package com.wisnia.videooo.login.navigation
 
 import android.content.Intent
 import androidx.lifecycle.Observer
-import com.wisnia.domain.authentication.model.Token
+import com.wisnia.domain.authentication.model.TokenModel
 import com.wisnia.videooo.authentication.view.AuthenticationActivity
 import com.wisnia.videooo.common.navigator.Navigator
 import com.wisnia.videooo.login.navigation.LoginEvent.NavigateToMovies
@@ -22,7 +22,7 @@ class LoginNavigator(val activity: LoginActivity) : Navigator<LoginEvent>(activi
         }
     }
 
-    private fun showAuthenticationScreen(token: Token) {
+    private fun showAuthenticationScreen(token: TokenModel) {
         val intent = Intent(activity, AuthenticationActivity::class.java).apply {
             putExtra(TOKEN_KEY, token)
         }

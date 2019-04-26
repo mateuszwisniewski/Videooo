@@ -1,6 +1,6 @@
 package com.wisnia.data.configuration.api
 
-import com.wisnia.domain.configuration.model.Configuration
+import com.wisnia.data.configuration.model.Configuration
 import io.reactivex.Single
 import retrofit2.http.GET
 

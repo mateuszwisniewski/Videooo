@@ -11,11 +11,16 @@ import com.wisnia.videooo.common.di.ViewModelFactory
 import com.wisnia.videooo.common.extensions.bindViewData
 import com.wisnia.videooo.common.extensions.viewModel
 import com.wisnia.videooo.databinding.FragmentMoviesBinding
+import com.wisnia.videooo.movies.adapter.PopularMoviesAdapter
 import com.wisnia.videooo.movies.viewmodel.MoviesViewModel
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.fragment_movies.moviesList
 import javax.inject.Inject
 
 class MoviesFragment : Fragment() {
+
+    @Inject
+    lateinit var popularMoviesAdapter: PopularMoviesAdapter
 
     @Inject
     lateinit var factory: ViewModelFactory<MoviesViewModel>
@@ -25,6 +30,7 @@ class MoviesFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
+        lifecycle.addObserver(moviesViewModel)
     }
 
     override fun onCreateView(
@@ -35,4 +41,13 @@ class MoviesFragment : Fragment() {
         bindViewData<FragmentMoviesBinding>(R.layout.fragment_movies, container).also {
             it.viewModel = moviesViewModel
         }.root
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+        moviesList.adapter = popularMoviesAdapter
+    }
 }

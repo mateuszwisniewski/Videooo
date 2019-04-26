@@ -1,6 +1,6 @@
 package com.wisnia.data.authentication.api
 
-import com.wisnia.domain.authentication.model.Token
+import com.wisnia.data.authentication.model.Token
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.GET

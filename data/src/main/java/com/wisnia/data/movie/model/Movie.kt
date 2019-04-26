@@ -1,6 +1,8 @@
-package com.wisnia.domain.movie.model
+package com.wisnia.data.movie.model
 
 import com.squareup.moshi.Json
+import com.wisnia.domain.movie.model.MovieModel
+import com.wisnia.domain.movie.model.ResultModel
 
 data class Movie(
     @Json(name = "page") var page: Int,
@@ -24,4 +26,25 @@ data class Result(
     @Json(name = "vote_count") var voteCount: Int,
     @Json(name = "video") var video: Boolean,
     @Json(name = "vote_average") var voteAverage: Double
+)
+
+fun Movie.toDomain(): MovieModel = MovieModel(page, results.toDomain(), totalResults, totalPages)
+
+private fun List<Result>.toDomain(): List<ResultModel> = map { result -> result.toDomain() }
+
+private fun Result.toDomain(): ResultModel = ResultModel(
+    posterPath,
+    adult,
+    overview,
+    releaseDate,
+    genreIds,
+    id,
+    originalTitle,
+    originalLanguage,
+    title,
+    backdropPath,
+    popularity,
+    voteCount,
+    video,
+    voteAverage
 )

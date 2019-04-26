@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.wisnia.domain.authentication.model.Token
+import com.wisnia.domain.authentication.model.TokenModel
 import com.wisnia.videooo.R
 import com.wisnia.videooo.authentication.model.PermissionState
 import com.wisnia.videooo.login.view.TOKEN_KEY
@@ -20,7 +20,7 @@ class AuthenticationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activty_auth_permission)
 
-        val token = intent.getSerializableExtra(TOKEN_KEY) as Token
+        val token = intent.getSerializableExtra(TOKEN_KEY) as TokenModel
         AuthenticationWebViewClient(token.token).let { client ->
             setupWebView(client, token)
             subscribeAccessPermissionEvents(client)
@@ -28,7 +28,7 @@ class AuthenticationActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    private fun setupWebView(webViewClient: AuthenticationWebViewClient, token: Token) {
+    private fun setupWebView(webViewClient: AuthenticationWebViewClient, token: TokenModel) {
         authPermissionWebView.apply {
             setWebViewClient(webViewClient)
             settings.javaScriptEnabled = true

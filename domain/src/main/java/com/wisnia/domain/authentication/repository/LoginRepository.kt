@@ -1,12 +1,12 @@
 package com.wisnia.domain.authentication.repository
 
-import com.wisnia.domain.authentication.model.GuestSession
-import com.wisnia.domain.authentication.model.Session
+import com.wisnia.domain.authentication.model.GuestSessionModel
+import com.wisnia.domain.authentication.model.SessionModel
 import io.reactivex.Single
 
 interface LoginRepository {
 
-    fun signIn(username: String, password: String): Single<Session>
+    fun signIn(username: String, password: String): Single<SessionModel>
 
-    val signInAsGuest: Single<GuestSession>
+    val signInAsGuest: Single<GuestSessionModel>
 }

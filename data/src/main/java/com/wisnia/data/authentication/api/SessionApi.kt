@@ -1,7 +1,7 @@
 package com.wisnia.data.authentication.api
 
-import com.wisnia.domain.authentication.model.GuestSession
-import com.wisnia.domain.authentication.model.Session
+import com.wisnia.data.authentication.model.GuestSession
+import com.wisnia.data.authentication.model.Session
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
