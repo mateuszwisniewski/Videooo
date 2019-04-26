@@ -4,7 +4,6 @@ import com.squareup.moshi.Json
 import com.wisnia.data.configuration.model.image.PosterSizes
 import com.wisnia.data.configuration.model.image.toDomain
 import com.wisnia.domain.configuration.model.ConfigurationModel
-import com.wisnia.domain.configuration.model.ImagesModel
 
 data class Configuration(
     @Json(name = "images") val images: Images,
@@ -21,14 +20,5 @@ data class Images(
     @Json(name = "still_sizes") val stillSizes: List<String>
 )
 
-fun Configuration.toDomain(): ConfigurationModel = ConfigurationModel(images.toDomain(), changeKeys)
-
-fun Images.toDomain(): ImagesModel = ImagesModel(
-    baseUrl,
-    secureBaseUrl,
-    backdropSizes,
-    logoSizes,
-    posterSizes.toDomain(),
-    profileSizes,
-    stillSizes
-)
+fun Configuration.toDomain(): ConfigurationModel =
+    ConfigurationModel(images.baseUrl, images.secureBaseUrl, images.posterSizes.toDomain())

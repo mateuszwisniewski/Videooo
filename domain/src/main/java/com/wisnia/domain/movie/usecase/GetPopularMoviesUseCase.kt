@@ -1,7 +1,7 @@
 package com.wisnia.domain.movie.usecase
 
 import com.wisnia.domain.configuration.model.image.PosterSizesModel.W342
-import com.wisnia.domain.configuration.model.posterImageUrlPrefix
+import com.wisnia.domain.configuration.model.posterImagePath
 import com.wisnia.domain.configuration.repository.ConfigurationRepository
 import com.wisnia.domain.movie.model.MovieModel
 import com.wisnia.domain.movie.repository.MovieRepository
@@ -14,7 +14,7 @@ class GetPopularMoviesUseCase @Inject constructor(
 ) {
 
     fun execute(): Single<MovieModel> =
-        configurationRepository.configuration
-            .map { configuration -> configuration.posterImageUrlPrefix(W342) }
+        configurationRepository.configuration()
+            .map { configuration -> configuration.posterImagePath(W342) }
             .flatMap { imagePath -> movieRepository.popularMovies(imagePath) }
 }

@@ -6,9 +6,9 @@ import com.wisnia.domain.configuration.model.ConfigurationModel
 import com.wisnia.domain.configuration.repository.ConfigurationRepository
 import io.reactivex.Single
 
-class ConfigurationDataRepository(configurationApi: ConfigurationApi) : ConfigurationRepository {
+class ConfigurationDataRepository(val configurationApi: ConfigurationApi) : ConfigurationRepository {
 
-    override val configuration: Single<ConfigurationModel> =
-        configurationApi.configuration
+    override fun configuration(): Single<ConfigurationModel> =
+        configurationApi.configuration()
             .map { configuration -> configuration.toDomain() }
 }

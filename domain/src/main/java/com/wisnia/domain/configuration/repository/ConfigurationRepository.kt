@@ -5,5 +5,5 @@ import io.reactivex.Single
 
 interface ConfigurationRepository {
 
-    val configuration: Single<ConfigurationModel>
+    fun configuration(): Single<ConfigurationModel>
 }

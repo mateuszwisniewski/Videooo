@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ConfigurationApi {
 
-    @get:GET("configuration")
-    val configuration: Single<Configuration>
+    @GET("configuration")
+    fun configuration(): Single<Configuration>
 }

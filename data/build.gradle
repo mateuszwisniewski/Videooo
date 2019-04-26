@@ -39,4 +39,5 @@ dependencies {
 
     testImplementation dataTests.junit
     testImplementation dataTests.kluent
+    testImplementation dataTests.mockitoKotlin
 }

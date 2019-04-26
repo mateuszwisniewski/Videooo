@@ -31,22 +31,8 @@ data class Result(
 fun Movie.toDomain(imagePath: String): MovieModel =
     MovieModel(page, results.toDomain(imagePath), totalResults, totalPages)
 
-private fun List<Result>.toDomain(imagePath: String): List<ResultModel> =
+internal fun List<Result>.toDomain(imagePath: String): List<ResultModel> =
     map { result -> result.toDomain(imagePath) }
 
-private fun Result.toDomain(imagePath: String): ResultModel = ResultModel(
-    imagePath.plus(posterPath),
-    adult,
-    overview,
-    releaseDate,
-    genreIds,
-    id,
-    originalTitle,
-    originalLanguage,
-    title,
-    backdropPath,
-    popularity,
-    voteCount,
-    video,
-    voteAverage
-)
+internal fun Result.toDomain(imagePath: String): ResultModel =
+    ResultModel(imagePath.plus(posterPath), id, title)
