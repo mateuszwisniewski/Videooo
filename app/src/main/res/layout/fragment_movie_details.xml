@@ -12,45 +12,50 @@
             type="com.wisnia.videooo.movies.details.viewmodel.MovieDetailsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/popularMovieDetailsImage"
-            android:layout_width="0dp"
-            android:layout_height="256dp"
-            app:imageSrc="@{viewModel.movieDetails.backdropPath}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:placeholder="@{@drawable/ic_image}"
-            app:transformation="@{Transformation.CenterCrop}"
-            tools:src="@mipmap/ic_launcher" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/popularMovieDetailsTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="@{viewModel.movieDetails.title}"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/popularMovieDetailsImage"
-            tools:text="Title" />
+            <ImageView
+                android:id="@+id/popularMovieDetailsImage"
+                android:layout_width="0dp"
+                android:layout_height="256dp"
+                app:imageSrc="@{viewModel.movieDetails.backdropPath}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:placeholder="@{@drawable/ic_image}"
+                app:transformation="@{Transformation.CenterCrop}"
+                tools:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:id="@+id/popularMovieDetailsOverview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="@{viewModel.movieDetails.overview}"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/popularMovieDetailsTitle"
-            tools:text="Overview" />
+            <TextView
+                android:id="@+id/popularMovieDetailsTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@{viewModel.movieDetails.title}"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/popularMovieDetailsImage"
+                tools:text="Title" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/popularMovieDetailsOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@{viewModel.movieDetails.overview}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/popularMovieDetailsTitle"
+                tools:text="Overview" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
