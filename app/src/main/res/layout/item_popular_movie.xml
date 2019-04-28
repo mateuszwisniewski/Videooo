@@ -8,17 +8,17 @@
 
         <variable
             name="item"
-            type="com.wisnia.domain.movie.model.ResultModel" />
+            type="com.wisnia.domain.movie.main.model.ResultModel" />
 
         <variable
             name="viewModel"
-            type="com.wisnia.videooo.movies.viewmodel.MovieItemViewModel" />
+            type="com.wisnia.videooo.movies.main.viewmodel.MovieItemViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="192dp"
-        android:onClick="@{() -> viewModel.onMovieItemClick()}"
+        android:onClick="@{() -> viewModel.onMovieItemClick(item.id)}"
         app:cardCornerRadius="4dp"
         app:cardUseCompatPadding="true">
 

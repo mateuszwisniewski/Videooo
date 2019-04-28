@@ -9,7 +9,7 @@ data class ConfigurationModel(
     val posterSizes: List<PosterSizesModel>
 )
 
-fun ConfigurationModel.posterImagePath(posterSizesModel: PosterSizesModel): String {
+fun ConfigurationModel.imagePath(posterSizesModel: PosterSizesModel): String {
     val posterSize = posterSizes.get(posterSizesModel)
     return secureBaseUrl.plus(posterSize)
 }
