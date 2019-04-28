@@ -3,8 +3,8 @@ package com.wisnia.data.account.model
 import com.squareup.moshi.Json
 import com.wisnia.domain.account.model.AccountDetailsModel
 
-data class AccountDetails(
-    @Json(name = "avatar") val avatar: Avatar,
+data class AccountDetailsEntity(
+    @Json(name = "avatar") val avatar: AvatarEntity,
     @Json(name = "id") val id: Int,
     @Json(name = "iso_639_1") val iso6391: String,
     @Json(name = "iso_3166_1") val iso31661: String,
@@ -13,9 +13,9 @@ data class AccountDetails(
     @Json(name = "username") val username: String
 )
 
-data class Avatar(@Json(name = "gravatar") val gravatar: Gravatar)
+data class AvatarEntity(@Json(name = "gravatar") val gravatar: GravatarEntity)
 
-data class Gravatar(@Json(name = "hash") val hash: String)
+data class GravatarEntity(@Json(name = "hash") val hash: String)
 
-fun AccountDetails.toDomain() =
+fun AccountDetailsEntity.toDomain() =
     AccountDetailsModel(id, name, username)

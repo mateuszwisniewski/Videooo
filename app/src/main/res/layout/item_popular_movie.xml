@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="com.wisnia.domain.movie.main.model.ResultModel" />
+            type="com.wisnia.videooo.movies.main.model.Movie" />
 
         <variable
             name="viewModel"

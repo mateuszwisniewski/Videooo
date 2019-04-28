@@ -2,7 +2,7 @@ package com.wisnia.videooo.repository.token
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.wisnia.data.authentication.model.Token
+import com.wisnia.data.authentication.model.TokenEntity
 import com.wisnia.data.authentication.repository.token.AuthenticationHeaderInterceptor
 import okhttp3.Headers
 import org.junit.Test
@@ -15,7 +15,7 @@ class AuthenticationHeaderExtractorTest {
     private val tested =
         AuthenticationHeaderInterceptor()
 
-    private val tokenResponse = mock<Response<Token>>()
+    private val tokenResponse = mock<Response<TokenEntity>>()
 
     @Test
     fun `when send token request then should add authentication header to token`() {
@@ -34,5 +34,5 @@ class AuthenticationHeaderExtractorTest {
         Headers.of("Authentication-Callback", AUTHENTICATION_CALLBACK_VALUE)
 
     private fun token() =
-        Token(true, "example_date", "example_token", null)
+        TokenEntity(true, "example_date", "example_token", null)
 }

@@ -4,14 +4,14 @@ import com.squareup.moshi.Json
 import com.wisnia.domain.movie.main.model.MovieModel
 import com.wisnia.domain.movie.main.model.ResultModel
 
-data class Movie(
+data class MovieEntity(
     @Json(name = "page") var page: Int,
-    @Json(name = "results") var results: List<Result>,
+    @Json(name = "results") var results: List<ResultEntity>,
     @Json(name = "total_results") var totalResults: Int,
     @Json(name = "total_pages") var totalPages: Int
 )
 
-data class Result(
+data class ResultEntity(
     @Json(name = "poster_path") var posterPath: String,
     @Json(name = "adult") var adult: Boolean,
     @Json(name = "overview") var overview: String,
@@ -28,11 +28,11 @@ data class Result(
     @Json(name = "vote_average") var voteAverage: Double
 )
 
-fun Movie.toDomain(imagePath: String): MovieModel =
+fun MovieEntity.toDomain(imagePath: String): MovieModel =
     MovieModel(page, results.toDomain(imagePath), totalResults, totalPages)
 
-internal fun List<Result>.toDomain(imagePath: String): List<ResultModel> =
+internal fun List<ResultEntity>.toDomain(imagePath: String): List<ResultModel> =
     map { result -> result.toDomain(imagePath) }
 
-internal fun Result.toDomain(imagePath: String): ResultModel =
+internal fun ResultEntity.toDomain(imagePath: String): ResultModel =
     ResultModel(imagePath.plus(posterPath), id, title)
