@@ -22,8 +22,8 @@ class MovieDetailsViewModel @Inject constructor(
         super.onInitialize()
 
         getMovieDetailsUsecase.execute(selectedMovieId.id)
-            .subscribeOn(scheduler.io)
-            .observeOn(scheduler.mainThread)
+            .subscribeOn(scheduler.io())
+            .observeOn(scheduler.mainThread())
             .subscribeBy(
                 onSuccess = { movieDetails.value = it.toUI() },
                 onError = { it.printStackTrace() })

@@ -56,6 +56,7 @@ ext {
     appTests = [
             junit        : "junit:junit:$junitVersion",
             kluent       : "org.amshove.kluent:kluent-android:$kluentVersion",
+            lifecycleTest: "androidx.arch.core:core-testing:${lifecycleExtensionsVersion}",
             mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
     ]
 

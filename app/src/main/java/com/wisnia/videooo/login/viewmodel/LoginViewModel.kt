@@ -33,8 +33,8 @@ class LoginViewModel @Inject constructor(
     fun signIn() {
         disposables +=
             loginRepository.signIn(login.value.orEmpty(), password.value.orEmpty())
-                .subscribeOn(rxScheduler.io)
-                .observeOn(rxScheduler.mainThread)
+                .subscribeOn(rxScheduler.io())
+                .observeOn(rxScheduler.mainThread())
                 .subscribeBy(
                     onSuccess = {
                         // TODO: not implemented yet
@@ -45,8 +45,8 @@ class LoginViewModel @Inject constructor(
     fun signInWebsite() {
         disposables.plusAssign(
             tokenRepository.token
-                .subscribeOn(rxScheduler.io)
-                .observeOn(rxScheduler.mainThread)
+                .subscribeOn(rxScheduler.io())
+                .observeOn(rxScheduler.mainThread())
                 .subscribeBy(
                     onSuccess = {
                         navigator.subscribe() // TODO: improve navigator
@@ -59,8 +59,8 @@ class LoginViewModel @Inject constructor(
     fun signInAsGuest() {
         disposables.plusAssign(
             loginRepository.signInAsGuest
-                .subscribeOn(rxScheduler.io)
-                .observeOn(rxScheduler.mainThread)
+                .subscribeOn(rxScheduler.io())
+                .observeOn(rxScheduler.mainThread())
                 .subscribeBy(
                     onSuccess = {
                         navigator.subscribe() // TODO: improve navigator

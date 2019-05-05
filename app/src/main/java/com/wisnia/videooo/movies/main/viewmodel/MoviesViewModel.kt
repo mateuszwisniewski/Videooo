@@ -26,8 +26,8 @@ class MoviesViewModel @Inject constructor(
 
     private fun getPopularMovies() {
         getPopularMoviesUseCase.execute()
-            .subscribeOn(scheduler.io)
-            .observeOn(scheduler.mainThread)
+            .subscribeOn(scheduler.io())
+            .observeOn(scheduler.mainThread())
             .subscribeBy(
                 onSuccess = { popularMovies.value = it.toUI() },
                 onError = { it.printStackTrace() }
