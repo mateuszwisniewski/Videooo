@@ -26,6 +26,7 @@ class MovieDetailsViewModel @Inject constructor(
             .observeOn(scheduler.mainThread())
             .subscribeBy(
                 onSuccess = { movieDetails.value = it.toUI() },
-                onError = { it.printStackTrace() })
+                onError = { it.printStackTrace() }
+            )
     }
 }

@@ -39,7 +39,8 @@ class LoginViewModel @Inject constructor(
                     onSuccess = {
                         // TODO: not implemented yet
                     },
-                    onError = { it.printStackTrace() })
+                    onError = { it.printStackTrace() }
+                )
     }
 
     fun signInWebsite() {
@@ -52,7 +53,8 @@ class LoginViewModel @Inject constructor(
                         navigator.subscribe() // TODO: improve navigator
                         navigator.call(NavigateToSignInWebsite(it))
                     },
-                    onError = { it.printStackTrace() })
+                    onError = { it.printStackTrace() }
+                )
         )
     }
 
@@ -67,7 +69,8 @@ class LoginViewModel @Inject constructor(
                         navigator.call(NavigateToMovies)
                     },
                     onError = { it.printStackTrace() }
-                ))
+                )
+        )
     }
 
     fun onPermissionGranted() {

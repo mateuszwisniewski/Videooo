@@ -15,12 +15,12 @@ class ApiKeyInterceptor(private val apiKey: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
         val url = originalRequest.url()
-                .newBuilder()
-                .addQueryParameter(API_KEY_NAME, apiKey)
-                .build()
+            .newBuilder()
+            .addQueryParameter(API_KEY_NAME, apiKey)
+            .build()
         val parametrizedRequest = originalRequest.newBuilder()
-                .url(url)
-                .build()
+            .url(url)
+            .build()
         return chain.proceed(parametrizedRequest)
     }
 }

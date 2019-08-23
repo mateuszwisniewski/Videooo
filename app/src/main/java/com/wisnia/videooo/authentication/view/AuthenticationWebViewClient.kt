@@ -31,7 +31,7 @@ class AuthenticationWebViewClient(token: String) : WebViewClient() {
     }
 
     private fun providePermissionEvent(uri: Uri) {
-        val permissionUrl = PermissionUrl(uri.encodedPath, uri.lastPathSegment)
+        val permissionUrl = PermissionUrl(uri.encodedPath!!, uri.lastPathSegment!!)
         val state = interceptor.interceptPermissionState(permissionUrl)
         permissionSubject.onNext(state)
     }

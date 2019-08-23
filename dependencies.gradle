@@ -1,25 +1,24 @@
 ext {
 
-    androidGradlePluginVersion = '3.4.0'
-    androidBuildToolsVersion = '28.0.3'
-    androidCompileSdkVersion = 28
-    androidMinSdkVersion = 19
-    androidTargetSdkVersion = 28
+    androidGradlePluginVersion = '4.0.1'
+    androidCompileSdkVersion = 29
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 29
 
-    appCompatVersion = '1.1.0-alpha04'
+    appCompatVersion = '1.1.0'
     constraintLayoutVersion = '1.1.3'
-    coreKtxVersion = '1.1.0-alpha05'
-    daggerVersion = '2.22.1'
+    coreKtxVersion = '1.2.0'
+    daggerVersion = '2.24'
     glideVersion = '4.8.0'
     injectVersion = '1'
-    kotlinVersion = '1.3.21'
+    kotlinVersion = '1.4.0'
     lifecycleExtensionsVersion = '2.0.0'
     materialVersion = '1.0.0'
     moshiVersion = '1.8.0'
-    navigationComponentVersion = '2.1.0-alpha02'
+    navigationComponentVersion = '2.2.1'
     retrofitVersion = '2.5.0'
-    retrofitAdapterVersion = '2.5.0'
-    retrofitConverterVersion = '2.5.0'
+    retrofitAdapterVersion = '2.6.1'
+    retrofitConverterVersion = '2.6.1'
     rxandroidVersion = '2.1.0'
     rxkotlinVersion = '2.2.0'
 
@@ -27,7 +26,7 @@ ext {
     kluentVersion = '1.49'
     mockitoKotlinVersion = '2.1.0'
 
-    ktlintVersion = '0.31.0'
+    ktlintVersion = '0.38.1'
 
     appLibrary = [
             appcompat          : "androidx.appcompat:appcompat:$appCompatVersion",
@@ -90,8 +89,8 @@ ext {
     ]
 
     quality = [
-            ktlint    : "com.github.shyiko:ktlint:$ktlintVersion",
-            jacoco    : '0.7.9',
+            ktlint    : "com.pinterest:ktlint:$ktlintVersion",
+            jacoco    : '0.8.5',
             configDir : "${project.rootDir}/quality/config",
             reportsDir: "${project.buildDir}/reports"
     ]

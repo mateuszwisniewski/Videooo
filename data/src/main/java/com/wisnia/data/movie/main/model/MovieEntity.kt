@@ -21,7 +21,7 @@ data class ResultEntity(
     @Json(name = "original_title") var originalTitle: String,
     @Json(name = "original_language") var originalLanguage: String,
     @Json(name = "title") var title: String,
-    @Json(name = "backdrop_path") var backdropPath: String,
+    @Json(name = "backdrop_path") var backdropPath: String?,
     @Json(name = "popularity") var popularity: Double,
     @Json(name = "vote_count") var voteCount: Int,
     @Json(name = "video") var video: Boolean,
