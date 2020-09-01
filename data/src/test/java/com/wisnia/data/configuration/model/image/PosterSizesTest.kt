@@ -4,7 +4,7 @@ import com.wisnia.domain.configuration.model.image.PosterSizesModel
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
-class PosterSizesEntityTest {
+class PosterSizesTest {
 
     @Test
     fun `should map list of poster sizes to domain`() {
