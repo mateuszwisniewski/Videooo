@@ -3,7 +3,7 @@ package com.wisnia.data.movie.main.repository
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.wisnia.data.movie.main.api.MovieApi
-import com.wisnia.data.movie.main.model.Movie
+import com.wisnia.data.movie.main.model.MovieEntity
 import com.wisnia.domain.movie.main.model.MovieModel
 import io.reactivex.Single
 import org.amshove.kluent.mock
@@ -14,7 +14,7 @@ class MovieDataRepositoryTest {
 
     val movieApi = mock<MovieApi>()
 
-    val movie = Movie(0, emptyList(), 0, 0)
+    val movie = MovieEntity(0, emptyList(), 0, 0)
 
     val tested = MovieDataRepository(movieApi)
 

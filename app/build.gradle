@@ -7,7 +7,6 @@ apply from: '../quality/ktlint.gradle'
 
 android {
     compileSdkVersion androidCompileSdkVersion
-    buildToolsVersion androidBuildToolsVersion
 
     defaultConfig {
         applicationId 'com.wisnia.videooo'
@@ -15,7 +14,6 @@ android {
         targetSdkVersion androidTargetSdkVersion
         versionCode 1
         versionName '0.0.1'
-        multiDexEnabled true
     }
 
     signingConfigs {
@@ -45,8 +43,9 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
     }
 }
 

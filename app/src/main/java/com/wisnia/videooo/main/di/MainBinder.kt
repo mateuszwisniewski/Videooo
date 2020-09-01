@@ -14,7 +14,8 @@ abstract class MainBinder {
         modules = [
             MainModule::class,
             MoviesBinder::class,
-            MovieDetailsBinder::class]
+            MovieDetailsBinder::class
+        ]
     )
     @Activity
     abstract fun bindMainActivity(): MainActivity

@@ -47,14 +47,14 @@ task testReport(type: JacocoReport, dependsOn: "test") {
     def debugFileTree = fileTree(dir: moduleClassDirs[project.name], excludes: moduleExcludes[project.name])
     def debugKotlinFileTree = fileTree(dir: moduleKotlinClassDirs[project.name], excludes: moduleExcludes[project.name])
 
-    classDirectories = files([debugFileTree, debugKotlinFileTree])
+    classDirectories.from = files([debugFileTree, debugKotlinFileTree])
 
     def coverageSourceDirs = [
             "src/main/kotlin"
     ]
-    additionalSourceDirs = files(coverageSourceDirs)
-    sourceDirectories = files(coverageSourceDirs)
-    executionData = files(moduleJacocoExec[project.name])
+    additionalSourceDirs.from = files(coverageSourceDirs)
+    sourceDirectories.from = files(coverageSourceDirs)
+    executionData.from = files(moduleJacocoExec[project.name])
 
     reports {
         html.enabled true

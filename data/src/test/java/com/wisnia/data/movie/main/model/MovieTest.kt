@@ -7,8 +7,8 @@ import org.junit.Test
 
 class MovieTest {
 
-    val movie = Movie(0, emptyList(), 0, 0)
-    val movieResult = Result("", false, "", "", emptyList(), 0, "", "", "", "", 0.0, 0, false, 0.0)
+    val movie = MovieEntity(0, emptyList(), 0, 0)
+    val movieResult = ResultEntity("", false, "", "", emptyList(), 0, "", "", "", "", 0.0, 0, false, 0.0)
 
     @Test
     fun `should map movie to domain`() {

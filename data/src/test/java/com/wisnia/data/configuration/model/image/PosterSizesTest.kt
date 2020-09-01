@@ -8,17 +8,17 @@ class PosterSizesTest {
 
     @Test
     fun `should map list of poster sizes to domain`() {
-        val posterSizes = listOf(
-            PosterSizes.w92,
-            PosterSizes.w154,
-            PosterSizes.w185,
-            PosterSizes.w342,
-            PosterSizes.w500,
-            PosterSizes.w780,
-            PosterSizes.original
+        val posterSizesEntity = listOf(
+            PosterSizesEntity.w92,
+            PosterSizesEntity.w154,
+            PosterSizesEntity.w185,
+            PosterSizesEntity.w342,
+            PosterSizesEntity.w500,
+            PosterSizesEntity.w780,
+            PosterSizesEntity.original
         )
 
-        val result = posterSizes.toDomain()
+        val result = posterSizesEntity.toDomain()
 
         val expected = listOf(
             PosterSizesModel.W92,

@@ -3,7 +3,7 @@ package com.wisnia.videooo.movies.details.model
 import com.wisnia.domain.movie.details.model.MovieDetailsModel
 
 data class MovieDetails(
-    val backdropPath: String,
+    val backdropPath: String?,
     val id: Int,
     val overview: String,
     val posterPath: Any,

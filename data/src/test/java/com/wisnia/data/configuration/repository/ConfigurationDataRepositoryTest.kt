@@ -3,8 +3,8 @@ package com.wisnia.data.configuration.repository
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.wisnia.data.configuration.api.ConfigurationApi
-import com.wisnia.data.configuration.model.Configuration
-import com.wisnia.data.configuration.model.Images
+import com.wisnia.data.configuration.model.ConfigurationEntity
+import com.wisnia.data.configuration.model.ImagesEntity
 import com.wisnia.domain.configuration.model.ConfigurationModel
 import io.reactivex.Single
 import org.amshove.kluent.mock
@@ -15,8 +15,8 @@ class ConfigurationDataRepositoryTest {
 
     val configurationApi = mock<ConfigurationApi>()
 
-    val images = Images("", "", emptyList(), emptyList(), emptyList(), emptyList(), emptyList())
-    val configuration = Configuration(images, emptyList())
+    val images = ImagesEntity("", "", emptyList(), emptyList(), emptyList(), emptyList(), emptyList())
+    val configuration = ConfigurationEntity(images, emptyList())
 
     val tested = ConfigurationDataRepository(configurationApi)
 
