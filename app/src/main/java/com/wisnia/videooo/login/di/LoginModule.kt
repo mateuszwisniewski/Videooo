@@ -14,7 +14,7 @@ import com.wisnia.domain.authentication.repository.SessionRepository
 import com.wisnia.domain.authentication.repository.TokenRepository
 import com.wisnia.videooo.application.di.scope.Activity
 import com.wisnia.videooo.login.navigation.LoginNavigator
-import com.wisnia.videooo.login.view.LoginActivity
+import com.wisnia.videooo.login.view.LoginFragment
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -24,7 +24,7 @@ class LoginModule {
 
     @Provides
     @Activity
-    fun provideLoginNavigator(activity: LoginActivity): LoginNavigator = LoginNavigator(activity)
+    fun provideLoginNavigator(fragment: LoginFragment): LoginNavigator = LoginNavigator(fragment)
 
     @Provides
     @Activity

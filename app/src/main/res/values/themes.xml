@@ -15,7 +15,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="SplashScreenTheme" parent="Base.Theme.Videooo">
+    <style name="SplashScreenTheme" parent="Theme.Videooo">
         <item name="android:windowBackground">@drawable/background_splash_screen</item>
     </style>
 </resources>

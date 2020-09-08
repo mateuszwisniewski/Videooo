@@ -15,7 +15,7 @@ ext {
     lifecycleExtensionsVersion = '2.0.0'
     materialVersion = '1.0.0'
     moshiVersion = '1.8.0'
-    navigationComponentVersion = '2.2.1'
+    navigationComponentVersion = '2.3.0'
     retrofitVersion = '2.5.0'
     retrofitAdapterVersion = '2.6.1'
     retrofitConverterVersion = '2.6.1'
@@ -43,8 +43,8 @@ ext {
             lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion",
             material           : "com.google.android.material:material:$materialVersion",
             moshi              : "com.squareup.moshi:moshi-kotlin:$moshiVersion",
-            navigationFragment : "androidx.navigation:navigation-fragment:$navigationComponentVersion",
-            navigationUi       : "androidx.navigation:navigation-ui:$navigationComponentVersion",
+            navigationFragment : "androidx.navigation:navigation-fragment-ktx:$navigationComponentVersion",
+            navigationUi       : "androidx.navigation:navigation-ui-ktx:$navigationComponentVersion",
             retrofit           : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             retrofitAdapter    : "com.squareup.retrofit2:adapter-rxjava2:$retrofitAdapterVersion",
             retrofitConverter  : "com.squareup.retrofit2:converter-moshi:$retrofitConverterVersion",
