@@ -6,9 +6,19 @@ import android.view.View.VISIBLE
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.wisnia.videooo.R
 
-class ToolbarNavController(private val toolbar: Toolbar) : NavController.OnDestinationChangedListener {
+class ToolbarNavController(
+    private val navController: NavController,
+    private val toolbar: Toolbar
+) : NavController.OnDestinationChangedListener {
+
+    init {
+        val configuration = AppBarConfiguration(navController.graph)
+        toolbar.setupWithNavController(navController, configuration)
+    }
 
     override fun onDestinationChanged(controller: NavController, destination: NavDestination, arguments: Bundle?) {
         when (destination.id) {
@@ -17,11 +27,11 @@ class ToolbarNavController(private val toolbar: Toolbar) : NavController.OnDesti
         }
     }
 
-    fun observeDestinationChange(navController: NavController) {
+    fun observeDestinationChange() {
         navController.addOnDestinationChangedListener(this)
     }
 
-    fun disposeDestinationChange(navController: NavController) {
+    fun disposeDestinationChange() {
         navController.removeOnDestinationChangedListener(this)
     }
 }

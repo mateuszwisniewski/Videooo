@@ -2,8 +2,6 @@ package com.wisnia.videooo.main.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import com.wisnia.videooo.R
 import com.wisnia.videooo.main.navigation.ToolbarNavController
 import dagger.Lazy
@@ -21,8 +19,6 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector {
     @Inject
     lateinit var toolbarNavController: Lazy<ToolbarNavController>
 
-    private val navController: NavController by lazy { findNavController(R.id.main_nav_host_fragment) }
-
     override fun androidInjector(): AndroidInjector<Any> = fragmentInjector
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,13 +31,13 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector {
     override fun onResume() {
         super.onResume()
         toolbarNavController.get()
-            .observeDestinationChange(navController)
+            .observeDestinationChange()
     }
 
     override fun onPause() {
         super.onPause()
         toolbarNavController.get()
-            .disposeDestinationChange(navController)
+            .disposeDestinationChange()
     }
 
     private fun setToolbar() {
