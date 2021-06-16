@@ -1,6 +1,6 @@
 ext {
 
-    androidGradlePluginVersion = '4.0.1'
+    androidGradlePluginVersion = '4.2.1'
     androidCompileSdkVersion = 29
     androidMinSdkVersion = 21
     androidTargetSdkVersion = 29
@@ -11,7 +11,7 @@ ext {
     daggerVersion = '2.24'
     glideVersion = '4.8.0'
     injectVersion = '1'
-    kotlinVersion = '1.4.0'
+    kotlinVersion = '1.5.10'
     lifecycleExtensionsVersion = '2.0.0'
     materialVersion = '1.0.0'
     moshiVersion = '1.8.0'
