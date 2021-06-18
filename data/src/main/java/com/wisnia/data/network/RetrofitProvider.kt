@@ -11,7 +11,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object RetrofitProvider {
 
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
-        provideRetrofit(BuildConfig.api_url, okHttpClient)
+        provideRetrofit(BuildConfig.TMDB_API_URL, okHttpClient)
 
     fun provideRetrofit(
         url: String,

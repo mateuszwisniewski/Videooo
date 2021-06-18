@@ -32,7 +32,7 @@ class AuthenticationActivity : AppCompatActivity() {
         authPermissionWebView.apply {
             setWebViewClient(webViewClient)
             settings.javaScriptEnabled = true
-            loadUrl(token.authenticationPage)
+            token.authenticationPage?.let { loadUrl(it) }
         }
     }
 
