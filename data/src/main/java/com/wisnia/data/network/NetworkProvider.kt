@@ -15,7 +15,7 @@ class NetworkProvider(private val context: Context) {
     fun provideApiKeyRetrofit(): Retrofit =
         provideRetrofit(
             provideOkHttpClientBuilder()
-                .addInterceptor(ApiKeyInterceptor(BuildConfig.tmdb_api_key))
+                .addInterceptor(ApiKeyInterceptor(BuildConfig.TMDB_API_KEY))
                 .build()
         )
 
