@@ -2,8 +2,9 @@ import java.io.File
 import java.io.FileInputStream
 import java.util.Properties
 
-private val tmdbProperties = File("secure/tmdb.properties")
-private val keystoreProperties = File("secure/keystore.properties")
+private val projectRootDir: String = System.getProperty("user.dir")
+private val tmdbProperties = File("$projectRootDir/secure/tmdb.properties")
+private val keystoreProperties = File("$projectRootDir/secure/keystore.properties")
 
 object Properties {
     val KEYSTORE_PATH = getProperty(keystoreProperties, "KEYSTORE")

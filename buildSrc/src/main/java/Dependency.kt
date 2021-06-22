@@ -22,8 +22,7 @@ object Dependency {
 
     private const val KTLINT_VERSION = "0.38.1"
 
-    const val CONSTRAINT_LAYOUT =
-        "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT_VERSION"
+    const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT_VERSION"
     const val CORE_KTX = "androidx.core:core-ktx:$CORE_KTX_VERSION"
 
     const val DAGGER = "com.google.dagger:dagger-android:$DAGGER_VERSION"
@@ -36,17 +35,14 @@ object Dependency {
 
     const val INJECT = "javax.inject:javax.inject:$INJECT_VERSION"
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$KOTLIN_VERSION"
-    const val LIFECYCLE_EXTENSIONS =
-        "androidx.lifecycle:lifecycle-extensions:$LIFECYCLE_EXTENSIONS_VERSION"
+    const val LIFECYCLE_EXTENSIONS = "androidx.lifecycle:lifecycle-extensions:$LIFECYCLE_EXTENSIONS_VERSION"
     const val MATERIAL = "com.google.android.material:material:$MATERIAL_VERSION"
     const val MOSHI = "com.squareup.moshi:moshi-kotlin:$MOSHI_VERSION"
-    const val NAVIGATION_FRAGMENT =
-        "androidx.navigation:navigation-fragment-ktx:$NAVIGATION_COMPONENT_VERSION"
+    const val NAVIGATION_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:$NAVIGATION_COMPONENT_VERSION"
     const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:$NAVIGATION_COMPONENT_VERSION"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     const val RETROFIT_ADAPTER = "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_ADAPTER_VERSION"
-    const val RETROFIT_CONVERTER =
-        "com.squareup.retrofit2:converter-moshi:$RETROFIT_CONVERTER_VERSION"
+    const val RETROFIT_CONVERTER = "com.squareup.retrofit2:converter-moshi:$RETROFIT_CONVERTER_VERSION"
     const val RX_ANDROID = "io.reactivex.rxjava2:rxandroid:$RXANDROID_VERSION"
     const val RX_KOTLIN = "io.reactivex.rxjava2:rxkotlin:$RXKOTLIN_VERSION"
 

@@ -5,8 +5,7 @@ plugins {
     kotlin("kapt")
 }
 
-//apply(from = "../quality/jacoco.gradle")
-apply(from = "../quality/ktlint.gradle.kts")
+apply(from = "$rootDir/quality/ktlint.gradle.kts")
 
 android {
     compileSdkVersion(Android.COMPILE_SDK_VERSION)
