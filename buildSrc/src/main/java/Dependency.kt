@@ -47,6 +47,7 @@ object Dependency {
     const val RX_KOTLIN = "io.reactivex.rxjava2:rxkotlin:$RXKOTLIN_VERSION"
 
     const val JUNIT = "junit:junit:$JUNIT_VERSION"
+    const val CORE_TESTING = "androidx.arch.core:core-testing:$LIFECYCLE_EXTENSIONS_VERSION"
     const val KLUENT = "org.amshove.kluent:kluent-android:$KLUENT_VERSION"
     const val MOCKITO_KOTLIN = "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
 
