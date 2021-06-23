@@ -20,16 +20,17 @@ android {
 
     signingConfigs {
         create("release") {
-            try {
-                storeFile = file(Properties.KEYSTORE_PATH)
-                storePassword = Properties.KEYSTORE_PASSWORD
-                keyAlias = Properties.KEYSTORE_ALIAS
-                keyPassword = Properties.KEYSTORE_ALIAS_PASSWORD
-            } catch (ignored: Exception) {
-                throw InvalidUserDataException(
-                    "You have to define: KEYSTORE, KEYSTORE_PASSWORD, ALIAS, ALIAS_PASSWORD " +
-                            "in secure/keystore.properties file"
-                )
+            val keystoreProperties = rootProject.file("$rootDir/${Property.KEYSTORE_PROPERTY_FILE_PATH}")
+            if (keystoreProperties.exists()) {
+                storeFile = file(loadProperty(keystoreProperties, Property.KEYSTORE_PATH_KEY))
+                storePassword = loadProperty(keystoreProperties, Property.KEYSTORE_PASSWORD_KEY)
+                keyAlias = loadProperty(keystoreProperties, Property.KEYSTORE_ALIAS_KEY)
+                keyPassword = loadProperty(keystoreProperties, Property.KEYSTORE_ALIAS_PASSWORD_KEY)
+            } else {
+                storeFile = file(System.getenv("KEYSTORE"))
+                storePassword = System.getenv("KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("ALIAS")
+                keyPassword = System.getenv("ALIAS_PASSWORD")
             }
         }
     }
@@ -92,6 +93,7 @@ dependencies {
 
     // Tests
     testImplementation(Dependency.JUNIT)
+    testImplementation(Dependency.CORE_TESTING)
     testImplementation(Dependency.KLUENT)
     testImplementation(Dependency.MOCKITO_KOTLIN)
 }

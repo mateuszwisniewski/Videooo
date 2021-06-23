@@ -14,8 +14,9 @@ android {
         versionCode = 1
         versionName = "0.0.1"
 
-        buildConfigField("String", Properties.TMDB_API_URL.first, Properties.TMDB_API_URL.second)
-        buildConfigField("String", Properties.TMDB_API_KEY.first, Properties.TMDB_API_KEY.second)
+        val tmdbProperties = rootProject.file("$rootDir/${Property.TMDB_PROPERTY_FILE_PATH}")
+        buildConfigField("String", Property.TMDB_API_URL, loadProperty(tmdbProperties, Property.TMDB_API_URL))
+        buildConfigField("String", Property.TMDB_API_KEY, loadProperty(tmdbProperties, Property.TMDB_API_KEY))
     }
 
     buildTypes {
