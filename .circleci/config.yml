@@ -21,7 +21,20 @@ jobs:
           command: |
             ./gradlew assembleDebug
 
+  upload-code-coverage:
+    executor:
+      name: android/android-machine
+
+    steps:
+      - run:
+          name: Upload CodeCov data
+          command: bash <(curl -s https://codecov.io/bash) -F app -f app/build/reports/jacoco/report.xml ; bash <(curl -s https://codecov.io/bash) -F core -f core/build/reports/jacoco/report.xml
+          when: on_success
+
 workflows:
   debug-build:
     jobs:
       - test-and-build
+      - upload-code-coverage:
+          requires:
+            - test-and-build
