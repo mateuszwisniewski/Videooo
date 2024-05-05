@@ -9,7 +9,6 @@ import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
-import kotlinx.android.synthetic.main.actvity_main.toolbar
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), HasAndroidInjector {
@@ -30,17 +29,15 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector {
 
     override fun onResume() {
         super.onResume()
-        toolbarNavController.get()
-            .observeDestinationChange()
+        toolbarNavController.get().observeDestinationChange()
     }
 
     override fun onPause() {
         super.onPause()
-        toolbarNavController.get()
-            .disposeDestinationChange()
+        toolbarNavController.get().disposeDestinationChange()
     }
 
     private fun setToolbar() {
-        setSupportActionBar(toolbar)
+        setSupportActionBar(findViewById(R.id.toolbar))
     }
 }

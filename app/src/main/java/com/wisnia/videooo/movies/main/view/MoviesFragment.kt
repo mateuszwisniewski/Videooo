@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.wisnia.videooo.R
 import com.wisnia.videooo.common.di.ViewModelFactory
 import com.wisnia.videooo.common.extensions.bindViewData
@@ -14,7 +15,6 @@ import com.wisnia.videooo.databinding.FragmentMoviesBinding
 import com.wisnia.videooo.movies.main.adapter.PopularMoviesAdapter
 import com.wisnia.videooo.movies.main.viewmodel.MoviesViewModel
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.fragment_movies.moviesList
 import javax.inject.Inject
 
 class MoviesFragment : Fragment() {
@@ -37,7 +37,7 @@ class MoviesFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? =
+    ): View =
         bindViewData<FragmentMoviesBinding>(R.layout.fragment_movies, container).also {
             it.viewModel = moviesViewModel
         }.root
@@ -48,6 +48,7 @@ class MoviesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        moviesList.adapter = popularMoviesAdapter
+        val moviesList = view?.findViewById<RecyclerView>(R.id.moviesList)
+        moviesList?.adapter = popularMoviesAdapter
     }
 }

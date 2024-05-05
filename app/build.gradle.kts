@@ -1,19 +1,18 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("android.extensions")
     kotlin("kapt")
 }
 
 apply(from = "$rootDir/quality/ktlint.gradle.kts")
 
 android {
-    compileSdkVersion(Android.COMPILE_SDK_VERSION)
+    compileSdk = Android.COMPILE_SDK_VERSION
 
     defaultConfig {
         applicationId = "com.wisnia.videooo"
-        minSdkVersion(Android.MIN_SDK_VERSION)
-        targetSdkVersion(Android.TARGET_SDK_VERSION)
+        minSdk = Android.MIN_SDK_VERSION
+        targetSdk = Android.TARGET_SDK_VERSION
         versionCode = 1
         versionName = "0.0.1"
     }
@@ -67,6 +66,7 @@ dependencies {
     implementation(Dependency.CORE_KTX)
 
     implementation(Dependency.LIFECYCLE_EXTENSIONS)
+    implementation(Dependency.LIFECYCLE_VIEWMODEL)
 
     implementation(Dependency.CONSTRAINT_LAYOUT)
     implementation(Dependency.MATERIAL)

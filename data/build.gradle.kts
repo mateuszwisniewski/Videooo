@@ -6,17 +6,23 @@ plugins {
 apply(from = "../quality/ktlint.gradle.kts")
 
 android {
-    compileSdkVersion(Android.COMPILE_SDK_VERSION)
+    compileSdk = Android.COMPILE_SDK_VERSION
 
     defaultConfig {
-        minSdkVersion(Android.MIN_SDK_VERSION)
-        targetSdkVersion(Android.TARGET_SDK_VERSION)
-        versionCode = 1
-        versionName = "0.0.1"
+        minSdk = Android.MIN_SDK_VERSION
+        targetSdk = Android.TARGET_SDK_VERSION
 
         val tmdbProperties = rootProject.file("$rootDir/${Property.TMDB_PROPERTY_FILE_PATH}")
-        buildConfigField("String", Property.TMDB_API_URL, loadProperty(tmdbProperties, Property.TMDB_API_URL))
-        buildConfigField("String", Property.TMDB_API_KEY, loadProperty(tmdbProperties, Property.TMDB_API_KEY))
+        buildConfigField(
+            "String",
+            Property.TMDB_API_URL,
+            loadProperty(tmdbProperties, Property.TMDB_API_URL)
+        )
+        buildConfigField(
+            "String",
+            Property.TMDB_API_KEY,
+            loadProperty(tmdbProperties, Property.TMDB_API_KEY)
+        )
     }
 
     buildTypes {

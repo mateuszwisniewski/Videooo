@@ -6,7 +6,8 @@ object Dependency {
     private const val GLIDE_VERSION = "4.8.0"
     private const val INJECT_VERSION = '1'
     private const val KOTLIN_VERSION = "1.5.10"
-    private const val LIFECYCLE_EXTENSIONS_VERSION = "2.0.0"
+    private const val LIFECYCLE_EXTENSIONS_VERSION = "2.2.0"
+    private const val LIFECYCLE_VIEWMODEL_VERSION = "2.4.0"
     private const val MATERIAL_VERSION = "1.0.0"
     private const val MOSHI_VERSION = "1.8.0"
     private const val NAVIGATION_COMPONENT_VERSION = "2.3.0"
@@ -17,7 +18,7 @@ object Dependency {
     private const val RXKOTLIN_VERSION = "2.2.0"
 
     private const val JUNIT_VERSION = "4.12"
-    private const val KLUENT_VERSION = "1.49"
+    private const val KLUENT_VERSION = "1.73"
     private const val MOCKITO_KOTLIN_VERSION = "2.1.0"
 
     private const val KTLINT_VERSION = "0.38.1"
@@ -36,6 +37,7 @@ object Dependency {
     const val INJECT = "javax.inject:javax.inject:$INJECT_VERSION"
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$KOTLIN_VERSION"
     const val LIFECYCLE_EXTENSIONS = "androidx.lifecycle:lifecycle-extensions:$LIFECYCLE_EXTENSIONS_VERSION"
+    const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:$LIFECYCLE_VIEWMODEL_VERSION"
     const val MATERIAL = "com.google.android.material:material:$MATERIAL_VERSION"
     const val MOSHI = "com.squareup.moshi:moshi-kotlin:$MOSHI_VERSION"
     const val NAVIGATION_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:$NAVIGATION_COMPONENT_VERSION"

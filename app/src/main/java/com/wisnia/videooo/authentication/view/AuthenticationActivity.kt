@@ -3,6 +3,7 @@ package com.wisnia.videooo.authentication.view
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import com.wisnia.domain.authentication.model.TokenModel
 import com.wisnia.videooo.R
@@ -10,7 +11,6 @@ import com.wisnia.videooo.authentication.model.PermissionState
 import com.wisnia.videooo.login.view.TOKEN_KEY
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.plusAssign
-import kotlinx.android.synthetic.main.activty_auth_permission.authPermissionWebView
 
 class AuthenticationActivity : AppCompatActivity() {
 
@@ -29,7 +29,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setupWebView(webViewClient: AuthenticationWebViewClient, token: TokenModel) {
-        authPermissionWebView.apply {
+        findViewById<WebView>(R.id.authPermissionWebView).apply {
             setWebViewClient(webViewClient)
             settings.javaScriptEnabled = true
             token.authenticationPage?.let { loadUrl(it) }
