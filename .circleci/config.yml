@@ -3,12 +3,14 @@
 version: 2.1
 
 orbs:
-  android: circleci/android@1.0.3
+  android: circleci/android@2.5.0
 
 jobs:
   test-and-build:
     executor:
       name: android/android-machine
+      resource-class: medium
+      tag: default
 
     steps:
       - checkout
@@ -24,6 +26,8 @@ jobs:
   upload-code-coverage:
     executor:
       name: android/android-machine
+      resource-class: medium
+      tag: default
 
     steps:
       - run:
