@@ -18,8 +18,8 @@ object Dependency {
     private const val RXKOTLIN_VERSION = "2.2.0"
 
     private const val JUNIT_VERSION = "4.12"
-    private const val KLUENT_VERSION = "1.73"
-    private const val MOCKITO_KOTLIN_VERSION = "2.1.0"
+    private const val KLUENT_VERSION = "1.59"
+    private const val MOCKITO_KOTLIN_VERSION = "5.3.1"
 
     private const val KTLINT_VERSION = "0.38.1"
 
@@ -51,7 +51,7 @@ object Dependency {
     const val JUNIT = "junit:junit:$JUNIT_VERSION"
     const val CORE_TESTING = "androidx.arch.core:core-testing:$LIFECYCLE_EXTENSIONS_VERSION"
     const val KLUENT = "org.amshove.kluent:kluent-android:$KLUENT_VERSION"
-    const val MOCKITO_KOTLIN = "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
+    const val MOCKITO_KOTLIN = "org.mockito.kotlin:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
 
     const val KTLINT = "com.pinterest:ktlint:$KTLINT_VERSION"
 }

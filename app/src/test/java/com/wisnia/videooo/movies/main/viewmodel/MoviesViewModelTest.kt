@@ -1,8 +1,5 @@
 package com.wisnia.videooo.movies.main.viewmodel
 
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
 import com.wisnia.domain.movie.main.model.MovieModel
 import com.wisnia.domain.movie.main.model.ResultModel
 import com.wisnia.domain.movie.main.usecase.GetPopularMoviesUseCase
@@ -11,9 +8,12 @@ import com.wisnia.videooo.TestRxScheduler
 import com.wisnia.videooo.movies.main.model.Movie
 import com.wisnia.videooo.movies.main.navigator.MoviesNavigator
 import io.reactivex.Single
-import org.amshove.kluent.shouldEqual
+import org.amshove.kluent.shouldBeEqualTo
 import org.junit.Before
 import org.junit.Test
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.mock
+import org.mockito.kotlin.verify
 
 class MoviesViewModelTest : LiveDataTest() {
 
@@ -31,7 +31,7 @@ class MoviesViewModelTest : LiveDataTest() {
 
     @Test
     fun `should subscribe navigator when initialized`() {
-        whenever(getPopularMoviesUseCase.execute()).thenReturn(Single.never())
+        `when`(getPopularMoviesUseCase.execute()).thenReturn(Single.never())
 
         tested.onInitialize()
 
@@ -40,7 +40,7 @@ class MoviesViewModelTest : LiveDataTest() {
 
     @Test
     fun `should get popular movies when initialized`() {
-        whenever(getPopularMoviesUseCase.execute()).thenReturn(Single.just(movieModel))
+        `when`(getPopularMoviesUseCase.execute()).thenReturn(Single.just(movieModel))
 
         tested.onInitialize()
 
@@ -50,11 +50,11 @@ class MoviesViewModelTest : LiveDataTest() {
     @Test
     fun `should map popular movies from domain to ui when successfully loaded`() {
         val movie = movieModel.copy(results = listOf(ResultModel("posterPath", 1, "title")))
-        whenever(getPopularMoviesUseCase.execute()).thenReturn(Single.just(movie))
+        `when`(getPopularMoviesUseCase.execute()).thenReturn(Single.just(movie))
 
         tested.onInitialize()
 
         val expected = listOf(Movie("posterPath", 1, "title"))
-        tested.popularMovies.value shouldEqual expected
+        tested.popularMovies.value shouldBeEqualTo expected
     }
 }

@@ -1,10 +1,10 @@
 package com.wisnia.videooo.splashscreen.viewmodel
 
-import com.nhaarman.mockitokotlin2.verify
 import com.wisnia.videooo.splashscreen.navigator.SplashScreenEvent.NavigateToLoginScreen
 import com.wisnia.videooo.splashscreen.navigator.SplashScreenNavigator
 import org.amshove.kluent.mock
 import org.junit.Test
+import org.mockito.Mockito.verify
 
 class SplashScreenViewModelTest {
 

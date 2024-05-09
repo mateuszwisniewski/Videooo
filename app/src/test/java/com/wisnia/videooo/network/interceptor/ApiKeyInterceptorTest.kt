@@ -1,8 +1,5 @@
 package com.wisnia.videooo.network.interceptor
 
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
 import com.wisnia.data.network.interceptor.ApiKeyInterceptor
 import com.wisnia.data.network.interceptor.ApiKeyNotFoundException
 import okhttp3.HttpUrl
@@ -13,6 +10,9 @@ import okhttp3.Response
 import org.amshove.kluent.any
 import org.junit.Before
 import org.junit.Test
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.mock
+import org.mockito.Mockito.verify
 
 class ApiKeyInterceptorTest {
 
@@ -22,7 +22,7 @@ class ApiKeyInterceptorTest {
 
     @Before
     fun setUp() {
-        whenever(chain.proceed(any(Request::class)))
+        `when`(chain.proceed(any(Request::class)))
             .thenAnswer {
                 Response.Builder()
                     .code(200)
@@ -63,7 +63,7 @@ class ApiKeyInterceptorTest {
             .host("example-host.com")
             .addQueryParameter(apiKeyName, apiKey)
 
-        whenever(chain.request()).thenReturn(
+        `when`(chain.request()).thenReturn(
             Request.Builder()
                 .url(httpUrlBuilder.build())
                 .build()
