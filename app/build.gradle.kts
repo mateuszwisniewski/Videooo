@@ -35,14 +35,18 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
     }
 
     buildTypes {
         getByName("debug") {
             isMinifyEnabled = false
-            isTestCoverageEnabled = true
+            enableUnitTestCoverage = true
         }
 
         getByName("release") {
@@ -53,9 +57,12 @@ android {
     }
 
     buildFeatures {
+        buildConfig = true
         dataBinding = true
         viewBinding = true
     }
+
+    namespace = "com.wisnia.videooo"
 }
 
 dependencies {
