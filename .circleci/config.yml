@@ -1,0 +1,23 @@
+version: 2.1
+
+orbs:
+  android: circleci/android@2.5.0
+
+jobs:
+  build:
+    executor:
+      name: android/android-machine
+      resource-class: medium
+      tag: default
+
+    steps:
+      - checkout
+      - run:
+          name: Assemble debug build
+          command: |
+            ./gradlew assembleDebug
+
+workflows:
+  debug-build:
+    jobs:
+      - build
